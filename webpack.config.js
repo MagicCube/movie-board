@@ -20,8 +20,6 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx'],
     alias: {
-      db: path.resolve(__dirname, './src/db'),
-      mb: path.resolve(__dirname, './src/mb'),
       'normalize.css': path.resolve(__dirname, './node_modules/normalize.css/normalize.css')
     }
   },
