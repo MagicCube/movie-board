@@ -1,0 +1,64 @@
+{
+  "name": "movie-board",
+  "version": "1.0.0",
+  "description": "Re-design and implement Douban Movie with React and Redux.",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server",
+    "build": "webpack -p"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cassiny/movie-board.git"
+  },
+  "keywords": [
+    "douban",
+    "movie",
+    "react",
+    "redux",
+    "cover-flow"
+  ],
+  "author": "Cassiny Team",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cassiny/movie-board/issues"
+  },
+  "homepage": "https://github.com/cassiny/movie-board#readme",
+  "devDependencies": {
+    "babel-core": "^6.23.1",
+    "babel-loader": "^6.3.2",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-preset-es2015": "^6.22.0",
+    "babel-preset-react": "^6.23.0",
+    "babel-preset-stage-0": "^6.22.0",
+    "css-loader": "^0.26.1",
+    "eslint": "^3.16.0",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-react": "^6.10.0",
+    "extract-loader": "^0.1.0",
+    "extract-text-webpack-plugin": "^2.0.0-rc.3",
+    "file-loader": "^0.10.0",
+    "html-loader": "^0.4.4",
+    "less": "^2.7.2",
+    "less-loader": "^2.2.3",
+    "redux-devtools-extension": "^2.13.0",
+    "style-loader": "^0.13.1",
+    "url-loader": "^0.5.7",
+    "webpack": "^2.2.1"
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.23.0",
+    "immutable": "^3.8.1",
+    "jquery": "^3.1.1",
+    "normalize.css": "^5.0.0",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "react-redux": "^5.0.2",
+    "redux": "^3.6.0",
+    "redux-actions": "^1.2.1",
+    "redux-immutable": "^3.1.0",
+    "redux-promise": "^0.5.3"
+  }
+}
