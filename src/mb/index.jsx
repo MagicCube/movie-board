@@ -1,6 +1,20 @@
-import configStore from './store/config-store';
-import actionCreators from './actions/entities-action-creators';
+import React from 'react';
+import { browserHistory, Router } from 'react-router';
+import { Provider } from 'react-redux';
+import { render } from 'react-dom';
+
+import { configStore } from './store';
+import { configRoutes } from './routes';
 
 const store = configStore();
-store.dispatch(actionCreators.loadComingSoon());
-store.dispatch(actionCreators.loadInTheaters());
+
+$(() => {
+  render(
+    <Provider store={store}>
+      <Router history={browserHistory}>
+        {configRoutes()}
+      </Router>
+    </Provider>,
+    document.getElementById('mbMountPoint')
+  );
+});
