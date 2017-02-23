@@ -6,7 +6,7 @@ const webpack = require('webpack');
 module.exports = {
   entry: {
     vendor: './src/vendor/index.js',
-    mb: './src/mb/index.jsx'
+    mb: ['./src/mb/index.jsx', './src/mb/res/index.less', './src/mb/index.html']
   },
   output: {
     filename: 'assets/js/[name].js',
@@ -27,7 +27,7 @@ module.exports = {
     rules: [
       {
         test: /\.jsx?$/,
-        loader: 'babel-loader'
+        use: ['babel-loader']
       },
       {
         test: /\.less$/,
@@ -38,11 +38,11 @@ module.exports = {
       },
       {
         test: /\.jpg$/,
-        loader: 'url-loader?limit=10240'
+        use: ['url-loader?limit=10240']
       },
       {
         test: /\.png$/,
-        loader: 'url-loader?limit=10240'
+        use: ['url-loader?limit=10240']
       },
       {
         test: /\.html$/,
