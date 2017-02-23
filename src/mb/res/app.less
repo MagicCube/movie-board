@@ -10,12 +10,22 @@
 
 .mb-app {
   width: 100%;
-  padding: 0 40px;
-}
+  padding: @mb-app-header-height + 50px 40px 0 40px;
 
-.mb-app-header {
-  width: 100%;
-  height: 70px;
+  @mb-app-header-height: 70px;
+  .mb-app-header {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    padding: 0 40px;
+    height: @mb-app-header-height;
+    transition: background 0.5s;
+
+    &.translucent {
+      background: rgba(0, 0, 0, 0.8);
+    }
+  }
 }
 
 .mb-logo {
