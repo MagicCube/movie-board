@@ -5,7 +5,7 @@ const webpack = require('webpack');
 
 module.exports = {
   entry: {
-    vendor: './src/vendor.js',
+    vendor: './src/vendor/index.js',
     mb: './src/mb/index.jsx'
   },
   output: {
@@ -37,8 +37,20 @@ module.exports = {
         })
       },
       {
+        test: /\.jpg$/,
+        loader: 'url-loader?limit=10240'
+      },
+      {
+        test: /\.png$/,
+        loader: 'url-loader?limit=10240'
+      },
+      {
         test: /\.html$/,
-        loader: 'file-loader?name=[name].[ext]!extract-loader!html-loader'
+        use: [
+          'file-loader?name=[name].html',
+          'extract-loader',
+          'html-loader'
+        ]
       }
     ]
   },
