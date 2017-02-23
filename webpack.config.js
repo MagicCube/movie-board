@@ -6,7 +6,7 @@ const webpack = require('webpack');
 module.exports = {
   entry: {
     vendor: './src/vendor.js',
-    mb: ['./src/mb/index.html', './src/mb/index.jsx']
+    mb: './src/mb/index.jsx'
   },
   output: {
     filename: 'assets/js/[name].js',

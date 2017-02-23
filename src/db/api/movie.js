@@ -6,9 +6,9 @@ const API_KEY = '0df993c66c0c636e29ecbb5344252a4a';
 
 
 export default {
-  in_theaters: createMethod('in_theaters'),
-  coming_soon: createMethod('coming_soon'),
-  top250: createMethod('top250'),
+  inTheaters: createMethod('in_theaters'),
+  comingSoon: createMethod('coming_soon'),
+  top250: createMethod('top250')
 };
 
 

@@ -1,10 +1,9 @@
-import api from 'db/api/movie';
+import configStore from './store/config-store';
+import actionCreators from './actions/entities-action-creators';
 
-async function test() {
-  for (let key in api) {
-    const { subjects } = await api[key]();
-    console.log(key, subjects);
-  }
-}
+import './res/index.less';
+import './index.html';
 
-test();
+const store = configStore();
+store.dispatch(actionCreators.loadComingSoon());
+store.dispatch(actionCreators.loadInTheaters());
