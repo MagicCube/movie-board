@@ -1,11 +1,25 @@
 @import 'variables';
 
-#mb-app {
+#mbMountPoint {
   width: 100%;
-  height: 100%;
+
+  * {
+    box-sizing: border-box;
+  }
+}
+
+.mb-app {
+  width: 100%;
+  padding: 0 40px;
+}
+
+.mb-app-header {
+  width: 100%;
+  height: 70px;
 }
 
 .mb-logo {
-  color: @mb-theme-color;
-  font-size: @font-size-h3;
+  width: 157px;
+  height: 70px;
+  background: url(images/mb-logo.png) no-repeat center;
 }
