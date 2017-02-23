@@ -5,6 +5,7 @@ module.exports = {
     "jsx-a11y",
     "import"
   ],
+  "parser": "babel-eslint",
   "env": {
     "browser": true,
     "node": true
