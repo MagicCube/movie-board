@@ -3,15 +3,16 @@ const API_KEY = '0df993c66c0c636e29ecbb5344252a4a';
 
 
 export default {
-  inTheaters: createMethod('in_theaters'),
-  comingSoon: createMethod('coming_soon'),
+  inTheaters: createMethod('/data/in_theaters.json'),
+  comingSoon: createMethod('/data/coming_soon.json'),
   top250: createMethod('top250')
 };
 
 
 function fetch(path, args) {
+  const url = path.startsWith('/') ? path : `${API_URL}/${path}`;
   return $.ajax({
-    url: `${API_URL}/${path}`,
+    url,
     data: {
       ...args,
       apikey: API_KEY
