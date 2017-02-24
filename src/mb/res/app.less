@@ -1,3 +1,5 @@
+@import '~font-awesome/less/variables.less';
+
 @import 'variables';
 
 #mbMountPoint {
@@ -9,10 +11,12 @@
 }
 
 .mb-app {
+  @mb-app-header-height: 80px;
+  @mb-app-footer-height: 50px;
+
   width: 100%;
   padding-top: @mb-app-header-height;
 
-  @mb-app-header-height: 70px;
   .mb-app-header {
     position: fixed;
     z-index: 999999;
@@ -28,10 +32,38 @@
       box-shadow: 0 0 20px 20px rgba(0, 0, 0, 0.4);
     }
   }
+
+  .mb-app-footer {
+    color: @gray-text-color;
+    height: @mb-app-footer-height;
+    margin: 40px 40px 0 40px;
+    border-top: 1px solid #333;
+
+    .copyright {
+      float:left;
+      font-size: 12px;
+      line-height: @mb-app-footer-height;
+
+      a {
+        text-decoration: underline;
+      }
+    }
+
+    .github {
+      float: right;
+      font-size: 14px;
+      line-height: @mb-app-footer-height;
+
+      &::before {
+        content: '@{fa-var-github} ';
+        font-family: FontAwesome;
+      }
+    }
+  }
 }
 
 .mb-logo {
   width: 157px;
   height: 70px;
-  background: url(images/mb-logo.png) no-repeat left center;
+  background: url(images/mb-logo.png) no-repeat left 10px;
 }
