@@ -1,16 +1,11 @@
 import React from 'react';
 
-import LoLoMoCell from './LoLoMoCell';
+import CoverList from './CoverList';
 
 export default function LoLoMoRowContent(props) {
-  const items = props.subjects.map(subject => (
-    <LoLoMoCell key={subject.id} subject={subject} />
-  ));
   return (
     <div className="mb-lolomo-row-content">
-      <ul className="movie-list">
-        {items}
-      </ul>
+      <CoverList subjects={props.subjects} />
     </div>
   );
 }
