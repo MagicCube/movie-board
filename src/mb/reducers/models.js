@@ -1,6 +1,6 @@
 import { handleActions } from 'redux-actions';
 
-import actionCreators from '../actions/models-action-creators';
+import actionCreators from '../actions/model-action-creators';
 
 const initialState = {
   inTheaters: { count: 0, subjects: [] },

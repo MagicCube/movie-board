@@ -11,11 +11,17 @@ const TITLES = {
 
 export default class LoLoMo extends React.Component {
   static propTypes = {
-    models: React.PropTypes.shape({}).isRequired
+    actions: React.PropTypes.shape({
+      selectSubject: React.PropTypes.func.isRequired
+    }).isRequired,
+    models: React.PropTypes.shape({}).isRequired,
+    selectedSubjectId: React.PropTypes.string,
+    selectedRowKey: React.PropTypes.string
   }
 
-  selectSubject(subject) {
-    console.log(subject);
+  static defaultProps = {
+    selectedSubjectId: null,
+    selectedRowKey: null
   }
 
   render() {
@@ -23,13 +29,22 @@ export default class LoLoMo extends React.Component {
       const model = this.props.models[key];
       const title = TITLES[key];
       const actions = {
-        selectSubject: subject => this.selectSubject(subject)
+        selectSubject: subject => this.props.actions.selectSubject({ subject, rowKey: key })
       };
-      return <LoLoMoRow key={key} defaultTitle={title} model={model} actions={actions} />;
+      return (
+        <LoLoMoRow
+          key={key}
+          actions={actions}
+          defaultTitle={title}
+          model={model}
+          hasSelection={this.props.selectedRowKey === key}
+          selectedSubjectId={this.props.selectedSubjectId}
+        />
+      );
     });
     return (
       <div className="mb-lolomo">
-        { rows }
+        {rows}
       </div>
     );
   }

@@ -5,7 +5,7 @@ import Cover from './Cover';
 export default function CoverList(props) {
   const items = props.subjects.map(subject => (
     <li key={subject.id} className="mb-cover-list-item">
-      <Cover subject={subject} isSelected={false} actions={props.actions} />
+      <Cover subject={subject} isSelected={props.selectedSubjectId === subject.id} actions={props.actions} />
     </li>
   ));
   return (
@@ -16,13 +16,15 @@ export default function CoverList(props) {
 }
 
 CoverList.propTypes = {
+  actions: React.PropTypes.object,
+  selectedSubjectId: React.PropTypes.string,
   subjects: React.PropTypes.arrayOf(React.PropTypes.shape({
     id: React.PropTypes.string
   })),
-  actions: React.PropTypes.object
 };
 
 CoverList.defaultProps = {
-  subjects: [],
-  actions: {}
+  actions: {},
+  selectedSubjectId: null,
+  subjects: []
 };

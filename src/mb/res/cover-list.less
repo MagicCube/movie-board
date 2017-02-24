@@ -16,15 +16,28 @@
   flex-shrink: 0;
   transition: all 0.2s;
 
-  &:hover {
-    z-index: 2;
-    opacity: 1 !important;
-    transform: scale(1.2) translate(20px, 0);
-    box-shadow: 0 -5px 15px 15px rgba(0, 0, 0, 0.4);
+  .mb-cover {
+    opacity: 0.25;
+  }
+}
 
-    & ~ .mb-cover-list-item {
-      transform: translate(40px, 0);
+.no-selection
+{
+  .mb-cover-list-item {
+    &:hover {
+      z-index: 2;
+      opacity: 1 !important;
+      transform: scale(1.2) translate(14px, 0);
+      box-shadow: 0 -5px 15px 15px rgba(0, 0, 0, 0.4);
+
+      & ~ .mb-cover-list-item {
+        transform: translate(36px, 0);
+      }
     }
+  }
+
+  .mb-cover {
+    opacity: 1;
   }
 }
 
@@ -36,9 +49,17 @@
   height: 100%;
   display: block;
   cursor: pointer;
+  transition: opacity 0.5s;
 
   &:hover {
     border: 1px solid white;
+  }
+
+  &.selected {
+    z-index: 2;
+    border: 4px solid white;
+    box-shadow: 0 0 15px 15px rgba(0, 0, 0, 0.4);
+    opacity: 1;
   }
 
   .cover-image {
