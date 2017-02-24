@@ -17,6 +17,9 @@ module.exports = {
     "no-use-before-define": [
       "off"
     ],
+    "no-restricted-syntax": [
+      "off"
+    ],
     "comma-dangle": [
       "off"
     ],
