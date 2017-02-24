@@ -1,5 +1,6 @@
 import React from 'react';
 
+import AppFooter from '../components/AppFooter';
 import AppHeader from '../components/AppHeader';
 
 import '../res/app.less';
@@ -16,8 +17,9 @@ export default class App extends React.Component {
   render() {
     return (
       <div className="mb-app">
-        <AppHeader />
+        <AppHeader navbars={[]} />
         {this.props.children}
+        <AppFooter />
       </div>
     );
   }

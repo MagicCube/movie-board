@@ -2,6 +2,14 @@ import cn from 'classnames';
 import React from 'react';
 
 export default class AppHeader extends React.PureComponent {
+  static propTypes = {
+    navbars: React.PropTypes.array
+  }
+
+  static defaultProps = {
+    navbars: []
+  }
+
   constructor(props) {
     super(props);
     this.state = {
@@ -26,6 +34,9 @@ export default class AppHeader extends React.PureComponent {
     return (
       <header className={className}>
         <div className="mb-logo" />
+        <div className="navbars">
+          {this.props.navbars}
+        </div>
       </header>
     );
   }
