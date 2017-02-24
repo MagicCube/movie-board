@@ -20,6 +20,9 @@ module.exports = {
     "import/no-extraneous-dependencies": [
       "off"
     ],
+    "max-len": [
+      "off"
+    ],
     "no-restricted-syntax": [
       "off"
     ],
