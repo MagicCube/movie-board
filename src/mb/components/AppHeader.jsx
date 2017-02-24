@@ -1,6 +1,8 @@
+
+import cn from 'classnames';
 import React from 'react';
 
-export default class AppHeader extends React.Component {
+export default class AppHeader extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = {
@@ -10,15 +12,19 @@ export default class AppHeader extends React.Component {
 
   componentDidMount() {
     $(window).on('scroll', () => {
-      this.setState({
-        translucent: document.body.scrollTop > 5
-      });
+      const translucent = document.body.scrollTop > 5;
+      if (this.state.translucent !== translucent) {
+        this.setState({
+          translucent
+        });
+      }
     });
   }
 
   render() {
+    const className = cn('mb-app-header', { translucent: this.state.translucent });
     return (
-      <header className={`mb-app-header${this.state.translucent ? ' translucent' : ''}`}>
+      <header className={className}>
         <div className="mb-logo" />
       </header>
     );
