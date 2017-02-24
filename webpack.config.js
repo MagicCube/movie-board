@@ -25,11 +25,7 @@ module.exports = {
     }
   },
   resolve: {
-    extensions: ['.js', '.jsx'],
-    alias: {
-      'font-awesome.less': path.resolve(__dirname, './node_modules/font-awesome/less/font-awesome.less'),
-      'normalize.css': path.resolve(__dirname, './node_modules/normalize.css/normalize.css')
-    }
+    extensions: ['.js', '.jsx']
   },
   module: {
     rules: [
@@ -44,6 +40,14 @@ module.exports = {
           fallback: 'style-loader',
           use: ['css-loader', 'less-loader']
         })
+      },
+      {
+        test: /\.css$/,
+        use: ExtractTextPlugin.extract({
+            use: ["css-loader"],
+            fallback: "style-loader"
+        }),
+        include: /node_modules/
       },
       {
         test: /\.jpg$/,
