@@ -14,11 +14,18 @@ export default class LoLoMo extends React.Component {
     models: React.PropTypes.shape({}).isRequired
   }
 
+  selectSubject(subject) {
+    console.log(subject);
+  }
+
   render() {
     const rows = Object.keys(this.props.models).map((key) => {
       const model = this.props.models[key];
       const title = TITLES[key];
-      return <LoLoMoRow key={key} defaultTitle={title} model={model} />;
+      const actions = {
+        selectSubject: subject => this.selectSubject(subject)
+      };
+      return <LoLoMoRow key={key} defaultTitle={title} model={model} actions={actions} />;
     });
     return (
       <div className="mb-lolomo">

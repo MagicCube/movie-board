@@ -1,10 +1,12 @@
 import React from 'react';
 
-import CoverListItem from './CoverListItem';
+import Cover from './Cover';
 
 export default function CoverList(props) {
   const items = props.subjects.map(subject => (
-    <CoverListItem key={subject.id} subject={subject} />
+    <li key={subject.id} className="mb-cover-list-item">
+      <Cover subject={subject} isSelected={false} actions={props.actions} />
+    </li>
   ));
   return (
     <ul className="mb-cover-list">
@@ -16,9 +18,11 @@ export default function CoverList(props) {
 CoverList.propTypes = {
   subjects: React.PropTypes.arrayOf(React.PropTypes.shape({
     id: React.PropTypes.string
-  }))
+  })),
+  actions: React.PropTypes.object
 };
 
 CoverList.defaultProps = {
-  subjects: []
+  subjects: [],
+  actions: {}
 };
