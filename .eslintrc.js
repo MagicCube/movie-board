@@ -11,19 +11,25 @@ module.exports = {
     "node": true
   },
   "rules": {
-    "no-underscore-dangle": [
-      "off"
-    ],
-    "no-use-before-define": [
-      "off"
-    ],
-    "no-restricted-syntax": [
+    "class-methods-use-this": [
       "off"
     ],
     "comma-dangle": [
       "off"
     ],
     "import/no-extraneous-dependencies": [
+      "off"
+    ],
+    "no-restricted-syntax": [
+      "off"
+    ],
+    "no-underscore-dangle": [
+      "off"
+    ],
+    "no-use-before-define": [
+      "off"
+    ],
+    "react/forbid-prop-types": [
       "off"
     ]
   },
