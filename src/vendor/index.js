@@ -1,3 +1,6 @@
+import 'normalize.css';
+import 'font-awesome/less/font-awesome.less';
+
 import 'babel-polyfill';
 import 'jquery';
 import 'react';
