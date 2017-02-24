@@ -30,9 +30,8 @@ export default class AppHeader extends React.PureComponent {
   }
 
   render() {
-    const className = cn('mb-app-header', { translucent: this.state.translucent });
     return (
-      <header className={className}>
+      <header className={cn('mb-app-header', { translucent: this.state.translucent })}>
         <div className="mb-logo" />
         <div className="navbars">
           {this.props.navbars}
