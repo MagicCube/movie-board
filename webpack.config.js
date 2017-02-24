@@ -15,6 +15,8 @@ module.exports = {
     publicPath: '/'
   },
   devServer: {
+    hot: false,
+    hotOnly: false,
     contentBase: path.resolve(__dirname, 'public'),
   },
   resolve: {
