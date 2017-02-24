@@ -15,6 +15,7 @@
   @mb-app-header-height: 70px;
   .mb-app-header {
     position: fixed;
+    z-index: 999999;
     left: 0;
     right: 0;
     top: 0;
@@ -23,7 +24,7 @@
     transition: background 0.5s;
 
     &.translucent {
-      background: rgba(0, 0, 0, 0.8);
+      background: rgba(0, 0, 0, 0.85);
     }
   }
 }

@@ -34,10 +34,12 @@
   }
 
   .mb-lolomo-row-content {
-    height: 420px;
+    height: 400px;
+    max-height: 400px;
     padding-left: 40px;
 
     .movie-list {
+      height: 100%;
       list-style: none;
       display: flex;
       flex-flow: row nowrap;
@@ -48,18 +50,20 @@
 
   .mb-lolomo-cell {
     width: 300px;
-    height: 420px;
+    max-width: 300px;
+    height: 100%;
     margin: 0;
     padding: 0;
     flex-shrink: 0;
+    transition: all 0.2s;
 
     &:hover {
-      transition: all 0.4s;
-      transform: scale(1.1);
+      transform: scale(1.2) translate(20px, 0);
       box-shadow: 0 0 20px 20px rgba(0, 0, 0, 0.4);
+      z-index: 2;
 
       .cover {
-        border: 5px solid white;
+        border: 1px solid white;
       }
     }
 
@@ -72,7 +76,12 @@
         height: 100%;
         background-color: #444;
         background-repeat: no-repeat;
+        background-size: cover;
       }
     }
+  }
+
+  .mb-lolomo-cell:hover ~ .mb-lolomo-cell {
+    transform: translate(40px, 0);
   }
 }
