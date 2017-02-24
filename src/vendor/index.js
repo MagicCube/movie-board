@@ -7,3 +7,4 @@ import 'redux';
 import 'redux-actions';
 import 'redux-immutable';
 import 'redux-promise';
+import 'react-router';
