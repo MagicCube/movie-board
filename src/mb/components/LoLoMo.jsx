@@ -4,6 +4,11 @@ import LoLoMoRow from './LoLoMoRow';
 
 import '../res/lolomo.less';
 
+const TITLES = {
+  inTheaters: '正在上映的电影',
+  comingSoon: '即将上映的电影'
+};
+
 export default class LoLoMo extends React.Component {
   static propTypes = {
     models: React.PropTypes.shape({}).isRequired
@@ -12,7 +17,8 @@ export default class LoLoMo extends React.Component {
   render() {
     const rows = Object.keys(this.props.models).map((key) => {
       const model = this.props.models[key];
-      return <LoLoMoRow key={key} model={model} />;
+      const title = TITLES[key];
+      return <LoLoMoRow key={key} defaultTitle={title} model={model} />;
     });
     return (
       <div className="mb-lolomo">

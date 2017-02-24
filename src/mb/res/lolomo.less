@@ -1,13 +1,78 @@
+@import '~font-awesome.less';
+
+@import 'variables';
+
 .mb-lolomo {
 
 }
 
 .mb-lolomo-row {
-  .head {
+  margin-top: 50px;
+  margin-bottom: 50px;
 
+  &:hover {
+    .mb-lolomo-row-head {
+      .title {
+        color: @link-hover-color;
+
+        &::after {
+          content: ' @{fa-var-chevron-right}';
+          font-family: FontAwesome;
+          font-size: smaller;
+        }
+      }
+    }
   }
 
-  .content {
+  .mb-lolomo-row-head {
+    padding-left: 40px;
+    margin-bottom: 20px;
 
+    .title {
+      font-size: @font-size-h3;
+    }
+  }
+
+  .mb-lolomo-row-content {
+    height: 420px;
+    padding-left: 40px;
+
+    .movie-list {
+      list-style: none;
+      display: flex;
+      flex-flow: row nowrap;
+      padding: 0;
+      margin: 0;
+    }
+  }
+
+  .mb-lolomo-cell {
+    width: 300px;
+    height: 420px;
+    margin: 0;
+    padding: 0;
+    flex-shrink: 0;
+
+    &:hover {
+      transition: all 0.4s;
+      transform: scale(1.1);
+      box-shadow: 0 0 20px 20px rgba(0, 0, 0, 0.4);
+
+      .cover {
+        border: 5px solid white;
+      }
+    }
+
+    .cover {
+      width: 100%;
+      height: 100%;
+
+      .cover-image {
+        width: 100%;
+        height: 100%;
+        background-color: #444;
+        background-repeat: no-repeat;
+      }
+    }
   }
 }
