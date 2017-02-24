@@ -22,6 +22,10 @@
         }
       }
     }
+
+    .mb-lolomo-cell {
+      opacity: 0.4;
+    }
   }
 
   .mb-lolomo-row-head {
@@ -58,9 +62,14 @@
     transition: all 0.2s;
 
     &:hover {
+      opacity: 1;
       transform: scale(1.2) translate(20px, 0);
       box-shadow: 0 0 20px 20px rgba(0, 0, 0, 0.4);
       z-index: 2;
+
+      & ~ .mb-lolomo-cell {
+        transform: translate(40px, 0);
+      }
 
       .cover {
         border: 1px solid white;
@@ -79,9 +88,5 @@
         background-size: cover;
       }
     }
-  }
-
-  .mb-lolomo-cell:hover ~ .mb-lolomo-cell {
-    transform: translate(40px, 0);
   }
 }
