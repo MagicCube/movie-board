@@ -1,5 +1,7 @@
 import React from 'react';
 
+import LoLoMo from '../components/LoLoMo';
+
 import '../res/home-page.less';
 
 export default class HomePage extends React.Component {
@@ -12,7 +14,7 @@ export default class HomePage extends React.Component {
   render() {
     return (
       <div className="mb-page mb-home-page">
-        <h1>Home Page</h1>
+        <LoLoMo />
       </div>
     );
   }
