@@ -15,13 +15,19 @@ module.exports = {
     publicPath: '/'
   },
   devServer: {
+    compress: true,
     hot: false,
     hotOnly: false,
     contentBase: path.resolve(__dirname, 'public'),
+    watchContentBase: false,
+    watchOptions: {
+      poll: false
+    }
   },
   resolve: {
     extensions: ['.js', '.jsx'],
     alias: {
+      'font-awesome.less': path.resolve(__dirname, './node_modules/font-awesome/less/font-awesome.less'),
       'normalize.css': path.resolve(__dirname, './node_modules/normalize.css/normalize.css')
     }
   },
@@ -40,11 +46,15 @@ module.exports = {
       },
       {
         test: /\.jpg$/,
-        use: ['url-loader?limit=10240']
+        use: ['url-loader?name=[path][name].[ext]&limit=10240']
       },
       {
         test: /\.png$/,
-        use: ['url-loader?limit=10240']
+        use: ['url-loader?name=[path][name].[ext]&limit=10240']
+      },
+      {
+        test: /\.(eot|svg|ttf|woff2?)$/,
+        use: ['file-loader?name=assets/fonts/[name].[ext]']
       },
       {
         test: /\.html$/,
