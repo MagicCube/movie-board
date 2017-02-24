@@ -36,7 +36,7 @@ module.exports = {
       },
       {
         test: /\.less$/,
-        loader: ExtractTextPlugin.extract({
+        use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: ['css-loader', 'less-loader']
         })
@@ -44,8 +44,8 @@ module.exports = {
       {
         test: /\.css$/,
         use: ExtractTextPlugin.extract({
-            use: ["css-loader"],
-            fallback: "style-loader"
+          use: ['css-loader'],
+          fallback: 'style-loader'
         }),
         include: /node_modules/
       },
