@@ -1,14 +1,17 @@
 import cs from 'classnames';
 import React from 'react';
 
-import LoLoMoRowContent from './LoLoMoRowContent';
-import LoLoMoRowHead from './LoLoMoRowHead';
+import MoCoverList from './MoCoverList';
 
 export default function LoLoMoRow(props) {
   return (
     <div className={cs('mb-lolomo-row', { 'no-selection': !props.hasSelection })}>
-      <LoLoMoRowHead title={props.model.title} defaultTitle={props.defaultTitle} />
-      <LoLoMoRowContent {...props.model} actions={props.actions} selectedSubjectId={props.selectedSubjectId} />
+      <div className="mb-lolomo-row-head">
+        <a className="title" href="javascript:void(0)">{props.model.title ? props.model.title : props.defaultTitle}</a>
+      </div>
+      <div className="mb-lolomo-row-content">
+        <MoCoverList {...props.model} actions={props.actions} selectedSubjectId={props.selectedSubjectId} />
+      </div>
     </div>
   );
 }
