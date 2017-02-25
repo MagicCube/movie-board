@@ -1,11 +1,7 @@
 @import '~font-awesome/less/variables.less';
-@import '~font-awesome/less/path.less';
 
 @import 'variables';
 
-.mb-lolomo {
-
-}
 
 .mb-lolomo-row {
   padding-top: 50px;
@@ -44,6 +40,21 @@
   &.no-selection {
     .mb-lomo-covers-cell {
       opacity: 1;
+    }
+  }
+}
+
+.mb-lolomo
+{
+  .mb-lomo-covers {
+    .mb-lomo-covers-cell.selected {
+      .selection-indicator {
+        opacity: 1;
+
+        .arrow {
+          transform: translateY(5px);
+        }
+      }
     }
   }
 }

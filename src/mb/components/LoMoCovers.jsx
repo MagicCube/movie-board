@@ -10,8 +10,12 @@ export default function LoMoCovers(props) {
     <li
       key={subject.id}
       className={cs('mb-lomo-covers-cell', { selected: props.selectedSubjectId === subject.id })}
-      onClick={() => props.actions.selectSubject(subject)}>
+      onClick={() => props.actions.selectSubject(subject)}
+    >
       <MoCover subject={subject} actions={props.actions} />
+      <div className="selection-indicator">
+        <div className="arrow" />
+      </div>
     </li>
   ));
   return (

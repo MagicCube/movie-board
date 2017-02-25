@@ -1,3 +1,6 @@
+@import '~font-awesome/less/variables.less';
+
+
 .mb-lomo-covers {
   list-style: none;
   display: flex;
@@ -13,6 +16,7 @@
   cursor: pointer;
   opacity: 0.2;
   transition: all 0.25s;
+  position: relative;
 
   &:hover {
     z-index: 3;
@@ -26,6 +30,29 @@
 
     .mb-mo-cover {
       border: 6px solid white;
+    }
+  }
+
+  .selection-indicator {
+    opacity: 0;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transition: opacity 0.25s;
+    transition-delay: 0.15s;
+
+    .arrow {
+      position: absolute;
+      top: -38px;
+      left: -11px;
+      transition: transform 0.25s;
+      transition-delay: 0.15s;
+
+      &::before {
+        content: @fa-var-sort-desc;
+        font-family: FontAwesome;
+        font-size: 40px;
+      }
     }
   }
 }
@@ -47,6 +74,10 @@
 .has-selection {
   .mb-lomo-covers-cell {
     overflow: hidden;
+
+    &.selected {
+      overflow: visible;
+    }
   }
 
   .mb-mo-cover {
