@@ -1,7 +1,7 @@
 import React from 'react';
 import cs from 'classnames';
 
-export default function Cover(props) {
+export default function MoCover(props) {
   const {
     subject,
     isSelected,
@@ -10,13 +10,13 @@ export default function Cover(props) {
     }
   } = props;
   return (
-    <a className={cs('mb-cover', { selected: isSelected })} onClick={typeof selectSubject === 'function' ? () => selectSubject(subject) : null}>
+    <a className={cs('mb-mo-cover', { selected: isSelected })} onClick={typeof selectSubject === 'function' ? () => selectSubject(subject) : null}>
       <div className="cover-image" style={{ backgroundImage: `url(${subject.images.large})` }} />
     </a>
   );
 }
 
-Cover.propTypes = {
+MoCover.propTypes = {
   actions: React.PropTypes.shape({
     selectSubject: React.PropTypes.func
   }).isRequired,
@@ -24,7 +24,7 @@ Cover.propTypes = {
   subject: React.PropTypes.object.isRequired
 };
 
-Cover.defaultProps = {
+MoCover.defaultProps = {
   actions: {},
   isSelected: false
 };

@@ -1,11 +1,11 @@
 import React from 'react';
 
-import CoverList from './CoverList';
+import MoCoverList from './MoCoverList';
 
 export default function LoLoMoRowContent(props) {
   return (
     <div className="mb-lolomo-row-content">
-      <CoverList {...props} />
+      <MoCoverList {...props} />
     </div>
   );
 }
