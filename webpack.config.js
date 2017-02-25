@@ -22,6 +22,13 @@ module.exports = {
     watchContentBase: false,
     watchOptions: {
       poll: false
+    },
+    proxy: {
+      '/api': {
+        target: 'http://api.douban.com/v2',
+        pathRewrite: {'^/api' : ''},
+        changeOrigin: true,
+      }
     }
   },
   resolve: {
