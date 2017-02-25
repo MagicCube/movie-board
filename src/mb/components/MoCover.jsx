@@ -2,6 +2,9 @@ import React from 'react';
 
 import '../res/mo-cover.less';
 
+/**
+ * Movie cover component.
+ */
 export default function MoCover(props) {
   const {
     subject

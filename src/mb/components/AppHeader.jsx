@@ -3,6 +3,10 @@ import React from 'react';
 
 import '../res/app-header.less';
 
+
+/**
+ * Header component of application, including banner and placeholder for navigation bars.
+ */
 export default class AppHeader extends React.PureComponent {
   static propTypes = {
     navbars: React.PropTypes.array

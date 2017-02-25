@@ -5,6 +5,9 @@ import AppHeader from '../components/AppHeader';
 
 import '../res/app.less';
 
+/**
+ * Application container.
+ */
 export default class App extends React.Component {
   static propTypes = {
     children: React.PropTypes.element
