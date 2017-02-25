@@ -12,12 +12,14 @@ export default function LoLoMoRow(props) {
       <div className="row-content">
         <LoMoCovers {...props.model} actions={props.actions} selectedSubjectId={props.selectedSubjectId} />
       </div>
+      {props.children}
     </div>
   );
 }
 
 LoLoMoRow.propTypes = {
   actions: React.PropTypes.object,
+  children: React.PropTypes.element,
   defaultTitle: React.PropTypes.string.isRequired,
   hasSelection: React.PropTypes.bool,
   model: React.PropTypes.shape({
@@ -29,6 +31,7 @@ LoLoMoRow.propTypes = {
 
 LoLoMoRow.defaultProps = {
   actions: {},
+  children: null,
   hasSelection: false,
   selectedSubjectId: null
 };

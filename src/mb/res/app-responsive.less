@@ -9,30 +9,45 @@
   }
 }
 
+.mb-jaw-bone-size(@factor) {
+  .mb-jaw-bone {
+    height: 1080px * 0.4 * @factor;
+  }
+}
+
+
+
+.mb-responsive(@factor) {
+  .mb-mo-cover-size(@factor);
+  .mb-jaw-bone-size(@factor);
+}
+
+
+
 @media (min-width: 1920px) {
-  .mb-mo-cover-size(1);
+  .mb-responsive(1.2);
 }
 
 @media (max-width: 1920px) {
-  .mb-mo-cover-size(0.8);
+  .mb-responsive(1920 / 1920);
 }
 
 @media (max-width: 1600px) {
-  .mb-mo-cover-size(1600 / 1920 * 0.8);
+  .mb-responsive(1600 / 1920);
 }
 
 @media (max-width: 1440px) {
-  .mb-mo-cover-size(1440 / 1920 * 0.8);
+  .mb-responsive(1440 / 1920);
 }
 
 @media (max-width: 1280px) {
-  .mb-mo-cover-size(1280 / 1920 * 0.8);
+  .mb-responsive(1280 / 1920);
 }
 
 @media (max-width: 1024px) {
-  .mb-mo-cover-size(1024 / 1920 * 0.8);
+  .mb-responsive(1024 / 1920);
 }
 
 @media (max-width: 768px) {
-  .mb-mo-cover-size(768 / 1920 * 0.8);
+  .mb-responsive(768 / 1920);
 }

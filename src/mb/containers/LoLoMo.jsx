@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import JawBone from '../components/JawBone';
 import lolomoActionCreators from '../actions/lolomo-action-creators';
 import LoLoMoRow from '../components/LoLoMoRow';
 
@@ -43,6 +44,13 @@ export default class LoLoMo extends React.Component {
     selectedRowKey: null
   }
 
+  get jawBone() {
+    if (!this._jawBone) {
+      this._jawBone = <JawBone />;
+    }
+    return this._jawBone;
+  }
+
   render() {
     const rows = Object.keys(this.props.models).map((key) => {
       const model = this.props.models[key];
@@ -50,6 +58,7 @@ export default class LoLoMo extends React.Component {
       const actions = {
         selectSubject: subject => this.props.actions.selectSubject({ subject, rowKey: key })
       };
+      const jawBone = this.props.selectedRowKey === key ? this.jawBone : null;
       return (
         <LoLoMoRow
           key={key}
@@ -58,7 +67,9 @@ export default class LoLoMo extends React.Component {
           model={model}
           hasSelection={this.props.selectedRowKey === key}
           selectedSubjectId={this.props.selectedSubjectId}
-        />
+        >
+          {jawBone}
+        </LoLoMoRow>
       );
     });
 
