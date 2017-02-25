@@ -58,11 +58,11 @@ module.exports = {
       },
       {
         test: /\.jpg$/,
-        use: ['url-loader?name=[path][name].[ext]&limit=10240']
+        use: ['url-loader?name=assets/images/[name].[ext]&limit=10240']
       },
       {
         test: /\.png$/,
-        use: ['url-loader?name=[path][name].[ext]&limit=10240']
+        use: ['url-loader?name=assets/images/[name].[ext]&limit=10240']
       },
       {
         test: /\.(eot|svg|ttf|woff2?)$/,
