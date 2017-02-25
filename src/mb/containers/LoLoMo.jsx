@@ -1,6 +1,8 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
-import LoLoMoRow from './LoLoMoRow';
+import lolomoActionCreators from '../actions/lolomo-action-creators';
+import LoLoMoRow from '../components/LoLoMoRow';
 
 import '../res/lolomo.less';
 
@@ -9,6 +11,23 @@ const TITLES = {
   comingSoon: '即将上映的电影'
 };
 
+
+@connect(
+  state => ({
+    selectedSubjectId: state.lolomo.selectedSubjectId,
+    selectedRowKey: state.lolomo.selectedRowKey
+  }),
+  dispatch => ({
+    actions: {
+      selectSubject(subject) {
+        dispatch(lolomoActionCreators.selectSubject(subject));
+      }
+    }
+  })
+)
+/**
+ * The famous design awarded "List Of List of Movie" container.
+ */
 export default class LoLoMo extends React.Component {
   static propTypes = {
     actions: React.PropTypes.shape({
@@ -42,6 +61,7 @@ export default class LoLoMo extends React.Component {
         />
       );
     });
+
     return (
       <div className="mb-lolomo">
         {rows}
