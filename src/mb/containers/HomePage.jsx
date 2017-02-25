@@ -2,38 +2,42 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import modelActionCreators from '../actions/model-action-creators';
-import lolomoActionCreators from '../actions/lolomo-action-creators';
-import LoLoMo from '../components/LoLoMo';
+import LoLoMo from './LoLoMo';
 
 import '../res/home-page.less';
 
 
 @connect(
-  state => ({ models: state.models, selectedSubjectId: state.lolomo.selectedSubjectId, selectedRowKey: state.lolomo.selectedRowKey }),
+  state => ({
+    models: state.models,
+  }),
   dipatch => ({
     loadComingSoon() {
       dipatch(modelActionCreators.loadComingSoon());
     },
     loadInTheaters() {
       dipatch(modelActionCreators.loadInTheaters());
-    },
-    selectSubject(subject) {
-      dipatch(lolomoActionCreators.selectSubject(subject));
     }
   })
 )
+/**
+ * Home page container.
+ */
 export default class HomePage extends React.Component {
   static propTypes = {
-    models: React.PropTypes.shape({}),
+    models: React.PropTypes.shape({
+      inTheaters: React.PropTypes.object,
+      comingSoon: React.PropTypes.object
+    }),
     loadComingSoon: React.PropTypes.func.isRequired,
-    loadInTheaters: React.PropTypes.func.isRequired,
-    selectedRowKey: React.PropTypes.string,
-    selectedSubjectId: React.PropTypes.string,
-    selectSubject: React.PropTypes.func.isRequired,
+    loadInTheaters: React.PropTypes.func.isRequired
   }
 
   static defaultProps = {
-    models: { inTheaters: { count: 0 }, comingSoon: { count: 0 } },
+    models: {
+      inTheaters: { count: 0, total: 0, subjects: [] },
+      comingSoon: { count: 0, total: 0, subjects: [] }
+    },
     selectedSubjectId: null
   }
 
@@ -43,14 +47,13 @@ export default class HomePage extends React.Component {
   }
 
   render() {
+    const models = {
+      inTheaters: this.props.models.inTheaters,
+      comingSoon: this.props.models.comingSoon,
+    };
     return (
       <div className="mb-page mb-home-page">
-        <LoLoMo
-          actions={{ selectSubject: this.props.selectSubject }}
-          models={this.props.models}
-          selectedSubjectId={this.props.selectedSubjectId}
-          selectedRowKey={this.props.selectedRowKey}
-        />
+        <LoLoMo models={models} />
       </div>
     );
   }
