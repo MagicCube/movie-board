@@ -1,7 +1,7 @@
 import cs from 'classnames';
 import React from 'react';
 
-import MoCoverList from './MoCoverList';
+import LoMoCover from './LoMoCover';
 
 export default function LoLoMoRow(props) {
   return (
@@ -10,7 +10,7 @@ export default function LoLoMoRow(props) {
         <a className="title" href="javascript:void(0)">{props.model.title ? props.model.title : props.defaultTitle}</a>
       </div>
       <div className="mb-lolomo-row-content">
-        <MoCoverList {...props.model} actions={props.actions} selectedSubjectId={props.selectedSubjectId} />
+        <LoMoCover {...props.model} actions={props.actions} selectedSubjectId={props.selectedSubjectId} />
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-.mb-mo-cover-list {
+.mb-lomo-cover {
   height: 100%;
   list-style: none;
   display: flex;
@@ -7,7 +7,7 @@
   margin: 0;
 }
 
-.mb-mo-cover-list-item {
+.mb-lomo-cover-item {
   max-width: 300px;
   width: 300px;
   height: 100%;
@@ -23,14 +23,14 @@
 
 .no-selection
 {
-  .mb-mo-cover-list-item {
+  .mb-lomo-cover-item {
     &:hover {
       z-index: 2;
       opacity: 1 !important;
       transform: scale(1.2) translate(14px, 0);
       box-shadow: 0 -5px 15px 15px rgba(0, 0, 0, 0.4);
 
-      & ~ .mb-mo-cover-list-item {
+      & ~ .mb-lomo-cover-item {
         transform: translate(36px, 0);
       }
     }
@@ -71,10 +71,10 @@
   }
 }
 
-.mb-mo-cover-list:hover .mb-mo-cover {
+.mb-lomo-cover:hover .mb-mo-cover {
   opacity: 0.4;
 }
 
-.mb-mo-cover-list:hover .mb-mo-cover:hover {
+.mb-lomo-cover:hover .mb-mo-cover:hover {
   opacity: 1;
 }
