@@ -6,6 +6,8 @@ import { render } from 'react-dom';
 import { configStore } from './store';
 import { configRoutes } from './routes';
 
+import './res/index.less';
+
 const store = configStore();
 
 $(() => {
