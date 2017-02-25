@@ -37,8 +37,7 @@ export default class HomePage extends React.Component {
     models: {
       inTheaters: { count: 0, total: 0, subjects: [] },
       comingSoon: { count: 0, total: 0, subjects: [] }
-    },
-    selectedSubjectId: null
+    }
   }
 
   componentDidMount() {
