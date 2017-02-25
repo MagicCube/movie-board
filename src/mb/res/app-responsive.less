@@ -1,0 +1,34 @@
+.mb-mo-cover-size(@factor) {
+  .mb-mo-cover {
+    width: 300px * @factor;
+    height: 400px * @factor;
+  }
+}
+
+@media (min-width: 1920px) {
+  .mb-mo-cover-size(1);
+}
+
+@media (max-width: 1920px) {
+  .mb-mo-cover-size(0.8);
+}
+
+@media (max-width: 1600px) {
+  .mb-mo-cover-size(1600 / 1920 * 0.8);
+}
+
+@media (max-width: 1440px) {
+  .mb-mo-cover-size(1440 / 1920 * 0.8);
+}
+
+@media (max-width: 1280px) {
+  .mb-mo-cover-size(1280 / 1920 * 0.8);
+}
+
+@media (max-width: 1024px) {
+  .mb-mo-cover-size(1024 / 1920 * 0.8);
+}
+
+@media (max-width: 768px) {
+  .mb-mo-cover-size(768 / 1920 * 0.8);
+}

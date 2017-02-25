@@ -1,30 +1,18 @@
 import React from 'react';
-import cs from 'classnames';
+
+import '../res/mo-cover.less';
 
 export default function MoCover(props) {
   const {
-    subject,
-    isSelected,
-    actions: {
-      selectSubject
-    }
+    subject
   } = props;
   return (
-    <a className={cs('mb-mo-cover', { selected: isSelected })} onClick={typeof selectSubject === 'function' ? () => selectSubject(subject) : null}>
+    <div className="mb-mo-cover">
       <div className="cover-image" style={{ backgroundImage: `url(${subject.images.large})` }} />
-    </a>
+    </div>
   );
 }
 
 MoCover.propTypes = {
-  actions: React.PropTypes.shape({
-    selectSubject: React.PropTypes.func
-  }).isRequired,
-  isSelected: React.PropTypes.bool,
   subject: React.PropTypes.object.isRequired
-};
-
-MoCover.defaultProps = {
-  actions: {},
-  isSelected: false
 };

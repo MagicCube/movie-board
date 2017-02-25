@@ -1,0 +1,31 @@
+@import '~font-awesome/less/variables.less';
+
+@import 'variables';
+
+.mb-app-footer {
+  color: @gray-text-color;
+  height: @mb-app-footer-height;
+  margin: 40px 40px 0 40px;
+  border-top: 1px solid #333;
+
+  .copyright {
+    float:left;
+    font-size: 12px;
+    line-height: @mb-app-footer-height;
+
+    a {
+      text-decoration: underline;
+    }
+  }
+
+  .github {
+    float: right;
+    font-size: 14px;
+    line-height: @mb-app-footer-height;
+
+    &::before {
+      content: '@{fa-var-github} ';
+      font-family: FontAwesome;
+    }
+  }
+}

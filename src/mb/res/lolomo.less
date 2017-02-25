@@ -12,8 +12,23 @@
   padding-bottom: 50px;
   overflow-x: hidden;
 
-  &:hover {
-    .mb-lolomo-row-head {
+  .row-head {
+    padding-left: 40px;
+    margin-bottom: 20px;
+
+    .title {
+      font-size: @font-size-h3;
+    }
+  }
+
+  .row-content {
+    padding-left: 40px;
+  }
+
+
+
+  &:hover, &.has-selection {
+    .row-head {
       .title {
         color: @link-hover-color;
 
@@ -25,49 +40,10 @@
       }
     }
   }
-}
 
-.mb-lolomo-row-head {
-  padding-left: 40px;
-  margin-bottom: 20px;
-
-  .title {
-    font-size: @font-size-h3;
+  &.no-selection {
+    .mb-lomo-covers-cell {
+      opacity: 1;
+    }
   }
-}
-
-.mb-lolomo-row-content {
-  max-height: 420px;
-  height: 420px;
-  padding-left: 40px;
-}
-
-.mb-lolomo-size(@factor) {
-  .mb-lomo-cover-item {
-    width: 300px * @factor;
-  }
-
-  .mb-lolomo-row-content {
-    height: 420px * @factor;
-  }
-}
-
-@media (max-width: 1920px) {
-  .mb-lolomo-size(0.8);
-}
-
-@media (max-width: 1600px) {
-  .mb-lolomo-size(0.67);
-}
-
-@media (max-width: 1440px) {
-  .mb-lolomo-size(0.58);
-}
-
-@media (max-width: 1280px) {
-  .mb-lolomo-size(0.5);
-}
-
-@media (max-width: 1024px) {
-  .mb-lolomo-size(0.42);
 }

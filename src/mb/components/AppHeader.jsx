@@ -1,6 +1,8 @@
 import cn from 'classnames';
 import React from 'react';
 
+import '../res/app-header.less';
+
 export default class AppHeader extends React.PureComponent {
   static propTypes = {
     navbars: React.PropTypes.array

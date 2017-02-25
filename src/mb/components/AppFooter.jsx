@@ -1,5 +1,7 @@
 import React from 'react';
 
+import '../res/app-footer.less';
+
 export default function AppFooter() {
   return (
     <footer className="mb-app-footer">

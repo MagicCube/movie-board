@@ -1,0 +1,23 @@
+@import 'variables';
+
+.mb-app-header {
+  position: fixed;
+  z-index: 999999;
+  left: 0;
+  right: 0;
+  top: 0;
+  padding: 0 40px;
+  height: @mb-app-header-height;
+  transition: background 0.4s;
+
+  &.translucent {
+    background: rgba(0, 0, 0, 0.92);
+    box-shadow: 0 0 20px 20px rgba(0, 0, 0, 0.4);
+  }
+
+  .mb-logo {
+    width: 157px;
+    height: 70px;
+    background: url(images/mb-logo.png) no-repeat left 10px;
+  }
+}
