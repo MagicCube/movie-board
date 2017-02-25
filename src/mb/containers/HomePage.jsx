@@ -4,8 +4,6 @@ import { connect } from 'react-redux';
 import modelActionCreators from '../actions/model-action-creators';
 import LoLoMo from './LoLoMo';
 
-import '../res/home-page.less';
-
 
 @connect(
   state => ({
