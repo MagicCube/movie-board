@@ -43,3 +43,25 @@
     }
   }
 }
+
+.has-selection {
+  .mb-lomo-covers-cell {
+    overflow: hidden;
+  }
+
+  .mb-mo-cover {
+    transition: all 0.4s;
+  }
+
+  .mb-lomo-covers-cell:hover {
+    .mb-mo-cover {
+      transform: scale(1.2);
+    }
+  }
+
+  .mb-lomo-covers-cell.selected:hover {
+    .mb-mo-cover {
+      transform: none;
+    }
+  }
+}
