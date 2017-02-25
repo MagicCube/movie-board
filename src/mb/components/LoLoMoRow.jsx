@@ -5,7 +5,7 @@ import MoCoverList from './MoCoverList';
 
 export default function LoLoMoRow(props) {
   return (
-    <div className={cs('mb-lolomo-row', { 'no-selection': !props.hasSelection })}>
+    <div className={cs('mb-lolomo-row', { 'no-selection': !props.hasSelection }, { 'has-selection': props.hasSelection })}>
       <div className="mb-lolomo-row-head">
         <a className="title" href="javascript:void(0)">{props.model.title ? props.model.title : props.defaultTitle}</a>
       </div>
