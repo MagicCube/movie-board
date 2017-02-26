@@ -62,7 +62,7 @@ export default class MoSlides extends React.Component {
         <div
           key={slide.get('id')}
           className="slide"
-          style={{ backgroundImage: `url(${slide.get('cover') ? slide.get('cover') : slide.get('medium')})` }}
+          style={{ backgroundImage: `url(${slide.get('image') ? slide.get('image') : slide.get('medium')})` }}
         />
       );
     }
