@@ -20,6 +20,9 @@ module.exports = {
     "import/no-extraneous-dependencies": [
       "off"
     ],
+    "jsx-a11y/no-static-element-interactions": [
+      "off"
+    ],
     "max-len": [
       "off"
     ],
