@@ -31,8 +31,7 @@ export function get(
     let url = null;
     if (typeof path === 'function') {
       url = path(payload);
-    }
-    else {
+    } else {
       url = path;
     }
     const args = payloadHandler(payload);
