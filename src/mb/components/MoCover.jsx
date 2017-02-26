@@ -6,19 +6,25 @@ import '../res/mo-cover.less';
 /**
  * Movie cover component. It has been integrated in LoMoCovers.
  */
-const MoCover = pure((props) => {
-  const {
-    subject
-  } = props;
-  return (
-    <div className="mb-mo-cover">
-      <div className="cover-image" style={{ backgroundImage: `url(${subject.images.large})` }} />
-    </div>
-  );
-});
+export default class MoCover extends React.Component {
+  static propTypes = {
+    subject: React.PropTypes.shape({
+      id: React.PropTypes.string.isRequired
+    }).isRequired
+  }
 
-MoCover.propTypes = {
-  subject: React.PropTypes.object.isRequired
-};
+  shouldComponentUpdate(nextProps) {
+    return nextProps.subject.id !== this.props.subject.id;
+  }
 
-export default MoCover;
+  render() {
+    const {
+      subject
+    } = this.props;
+    return (
+      <div className="mb-mo-cover">
+        <div className="cover-image" style={{ backgroundImage: `url(${subject.images.large})` }} />
+      </div>
+    );
+  }
+}
