@@ -10,6 +10,20 @@
       bottom: 0;
       background-repeat: no-repeat;
       background-size: cover;
+      transition: opacity 1s;
+
+      &.transition-enter {
+        opacity: 0;
+      }
+      &.transition-enter-active {
+        opacity: 1;
+      }
+      &.transition-leave {
+        opacity: 1;
+      }
+      &.transition-leave-active {
+        opacity: 0;
+      }
     }
   }
 
@@ -19,6 +33,6 @@
     right: 0;
     top: 0;
     bottom: 0;
-    background: linear-gradient(to right, rgba(0,0,0,1) 0,rgba(0,0,0,0.3) 30%,rgba(0,0,0,0) 100%);
+    background: linear-gradient(to right, rgba(0,0,0,1) 0,rgba(0,0,0,0.4) 30%,rgba(0,0,0,0) 100%);
   }
 }

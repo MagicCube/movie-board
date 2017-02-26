@@ -1,5 +1,6 @@
 import Immutable from 'immutable';
 import React from 'react';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 import '../res/mo-slides.less';
 
@@ -15,15 +16,67 @@ export default class MoSlides extends React.Component {
     slides: Immutable.fromJS([])
   }
 
+  constructor(props) {
+    super(props);
+    this.state = { slideIndex: 0 };
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    return !nextProps.slides.equals(this.props.slides) || nextState.slideIndex !== this.state.slideIndex;
+  }
+
+  componentWillUpdate(nextProps) {
+    if (nextProps.slides.size && !nextProps.slides.equals(this.props.slides)) {
+      if (this.timer) {
+        clearInterval(this.timer);
+        this.timer = null;
+      }
+      console.log('Reset');
+      this.timer = setInterval(() => {
+        this.setState((prevState, props) => {
+          let slideIndex = prevState.slideIndex + 1;
+          if (slideIndex > props.slides.size - 1) {
+            slideIndex = 0;
+          }
+          return { slideIndex };
+        });
+      }, 4000);
+      this.setState({
+        slideIndex: 0
+      });
+    }
+  }
+
+  componentWillUnmount() {
+    if (this.timer) {
+      clearInterval(this.timer);
+      this.timer = null;
+    }
+  }
+
   render() {
     const { slides } = this.props;
-    const slideElements = slides.map(slide => (
-      <div key={slide.get('id')} className="slide" style={{ backgroundImage: `url(${slide.get('cover') ? slide.get('cover') : slide.get('medium')})` }} />
-    )).toArray();
+    const slide = slides.get(this.state.slideIndex);
+    let slideElement = null;
+    if (slide) {
+      slideElement = (
+        <div
+          key={slide.get('id')}
+          className="slide"
+          style={{ backgroundImage: `url(${slide.get('cover') ? slide.get('cover') : slide.get('medium')})` }}
+        />
+      );
+    }
     return (
       <div className="mb-mo-slides">
         <div className="slides">
-          {slideElements}
+          <ReactCSSTransitionGroup
+            transitionName="transition"
+            transitionEnterTimeout={1000}
+            transitionLeaveTimeout={1000}
+          >
+            {slideElement}
+          </ReactCSSTransitionGroup>
         </div>
         <div className="mask" />
       </div>
