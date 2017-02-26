@@ -5,6 +5,7 @@ import { bindActionCreators } from 'redux';
 import JawBone from '../components/JawBone';
 import lolomoActionCreators from '../actions/lolomo-action-creators';
 import LoLoMoRow from '../components/LoLoMoRow';
+import MoJumbotron from '../components/MoJumbotron';
 
 import '../res/lolomo.less';
 
@@ -38,33 +39,37 @@ export default class LoLoMo extends React.PureComponent {
     selectedRowKey: null
   }
 
-  getJawBone() {
-    if (!this._jawBone) {
-      this._jawBone = (
-        <JawBone>
-          <h1>JawBone Placeholder</h1>
-        </JawBone>
-      );
-    }
-    return this._jawBone;
+  createJawBone({
+    models,
+    selectedRowKey,
+    selectedSubjectId
+  }) {
+    const subject = selectedSubjectId ? models[selectedRowKey].subjects.find(subject => subject.id === selectedSubjectId) : null;
+    return (
+      <JawBone>
+        <MoJumbotron subject={subject} />
+      </JawBone>
+    );
   }
 
   render() {
-    const rows = Object.keys(this.props.models).map((key) => {
-      const model = this.props.models[key];
+    const { models, selectedRowKey, selectedSubjectId } = this.props;
+
+    const rows = Object.keys(models).map((key) => {
+      const model = models[key];
       const title = TITLES[key];
       const actions = {
         selectSubject: subject => this.props.actions.selectSubject({ subject, rowKey: key })
       };
-      const jawBone = this.props.selectedRowKey === key ? this.getJawBone() : null;
+      const jawBone = selectedRowKey === key ? this.createJawBone(this.props) : null;
       return (
         <LoLoMoRow
           key={key}
           actions={actions}
           defaultTitle={title}
           model={model}
-          hasSelection={this.props.selectedRowKey === key}
-          selectedSubjectId={this.props.selectedSubjectId}
+          hasSelection={selectedRowKey === key}
+          selectedSubjectId={selectedSubjectId}
         >
           {jawBone}
         </LoLoMoRow>
