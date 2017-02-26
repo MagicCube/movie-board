@@ -29,7 +29,7 @@ module.exports = {
     proxy: {
       '/api': {
         target: 'http://api.douban.com/v2',
-        pathRewrite: {'^/api' : ''},
+        pathRewrite: { '^/api': '' },
         changeOrigin: true,
       }
     }
