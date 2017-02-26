@@ -16,7 +16,7 @@ export default function LoMoCovers({ actions, selectedSubjectId, subjects }) {
       onClick={e => {
         actions.selectSubject(subject);
         $(document.body).animate({
-          scrollTop: e.currentTarget.offsetTop - $('.mb-app-header').height()
+          scrollTop: e.currentTarget.offsetTop - $('.mb-app-header').height() - 8
         }, 400);
       }}
     >
