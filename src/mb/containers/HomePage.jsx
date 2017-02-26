@@ -21,7 +21,7 @@ import LoLoMo from './LoLoMo';
 /**
  * Home page container.
  */
-export default class HomePage extends React.Component {
+export default class HomePage extends React.PureComponent {
   static propTypes = {
     models: React.PropTypes.shape({
       inTheaters: React.PropTypes.object,
