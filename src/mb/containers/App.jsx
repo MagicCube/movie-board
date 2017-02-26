@@ -8,7 +8,7 @@ import '../res/app.less';
 /**
  * Application container.
  */
-export default class App extends React.Component {
+export default class App extends React.PureComponent {
   static propTypes = {
     children: React.PropTypes.element
   }
