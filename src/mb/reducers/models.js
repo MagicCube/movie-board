@@ -19,5 +19,8 @@ export default handleActions({
       ...state,
       comingSoon
     };
+  },
+  [actionCreators.loadSubject](state, { payload: subject }) {
+
   }
 }, initialState);
