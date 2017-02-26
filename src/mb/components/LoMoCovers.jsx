@@ -13,7 +13,12 @@ export default function LoMoCovers({ actions, selectedSubjectId, subjects }) {
     <li
       key={subject.id}
       className={cs('mb-lomo-covers-cell', { selected: selectedSubjectId === subject.id })}
-      onClick={() => actions.selectSubject(subject)}
+      onClick={e => {
+        actions.selectSubject(subject);
+        $(document.body).animate({
+          scrollTop: e.currentTarget.offsetTop - $('.mb-app-header').height()
+        }, 400);
+      }}
     >
       <MoCover subject={subject} />
       <div className="selection-indicator">
