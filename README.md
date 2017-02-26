@@ -2,10 +2,9 @@
 Re-design and implement Douban Movie using React and Redux.
 
 ## Screenshots
-> TBD
+![](screenshots/01.png)
 
-## Major Components
-> TBD
+![](screenshots/02.png)
 
 ## Major Packages Used in this project
 * ESLint
