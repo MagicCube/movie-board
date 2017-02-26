@@ -86,7 +86,8 @@ module.exports = {
       names: 'vendor'
     }),
     new webpack.ProvidePlugin({
-      $: 'jquery'
+      $: 'jquery',
+      recompose: 'recompose'
     }),
     new ExtractTextPlugin('assets/css/[name].css')
   ]

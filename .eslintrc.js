@@ -40,6 +40,7 @@ module.exports = {
     ]
   },
   "globals": {
-    "$": true
+    "$": true,
+    "recompose": true
   }
 };
