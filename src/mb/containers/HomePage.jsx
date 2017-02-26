@@ -8,7 +8,9 @@ import LoLoMo from './LoLoMo';
 
 @connect(
   state => ({ models: state.models }),
-  dispatch => bindActionCreators(modelActionCreators, dispatch)
+  dispatch => ({
+    actions: bindActionCreators(modelActionCreators, dispatch)
+  })
 )
 /**
  * Home page container.
@@ -19,8 +21,10 @@ export default class HomePage extends React.PureComponent {
       inTheaters: React.PropTypes.object,
       comingSoon: React.PropTypes.object
     }),
-    loadComingSoon: React.PropTypes.func.isRequired,
-    loadInTheaters: React.PropTypes.func.isRequired
+    actions: React.PropTypes.shape({
+      loadComingSoon: React.PropTypes.func.isRequired,
+      loadInTheaters: React.PropTypes.func.isRequired
+    }).isRequired
   }
 
   static defaultProps = {
@@ -31,8 +35,8 @@ export default class HomePage extends React.PureComponent {
   }
 
   componentDidMount() {
-    this.props.loadInTheaters();
-    this.props.loadComingSoon();
+    this.props.actions.loadInTheaters();
+    this.props.actions.loadComingSoon();
   }
 
   render() {
