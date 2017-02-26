@@ -3,7 +3,7 @@ import React from 'react';
 import '../res/mo-cover.less';
 
 /**
- * Movie cover component.
+ * Movie cover component. It has been integrated in LoMoCovers.
  */
 export default function MoCover(props) {
   const {

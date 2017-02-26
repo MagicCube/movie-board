@@ -3,6 +3,9 @@ import React from 'react';
 
 import LoMoCovers from './LoMoCovers';
 
+/**
+ * Represent a single row in a LoLoMo container.
+ */
 export default function LoLoMoRow(props) {
   return (
     <div className={cs('mb-lolomo-row', { 'no-selection': !props.hasSelection }, { 'has-selection': props.hasSelection })}>
