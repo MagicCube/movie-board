@@ -35,7 +35,7 @@ npm install
 ## How to Build and Run
 * Run in **Webpack DevServer**.
 ``` shell
-npm start
+npm run dev
 ```
   Then open http://localhost:8080
 
@@ -43,3 +43,11 @@ npm start
 ``` shell
 npm run build
 ```
+
+* Then run
+``` shell
+npm start
+```
+
+## Distribution Branch
+Dist: https://github.com/magiccube/movie-board/tree/dist

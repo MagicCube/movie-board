@@ -49,7 +49,7 @@ export default class MoJumbotron extends React.Component {
             <div className="summary">{summary}</div>
           </div>
         </div>
-        <MoSlides slides={subject.get('trailers') ? subject.get('trailers') : subject.get('photos')} />
+        <MoSlides slides={subject.get('trailers') && subject.get('trailers').size ? subject.get('trailers') : subject.get('photos')} />
       </div>
     );
   }
