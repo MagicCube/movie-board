@@ -10,9 +10,13 @@ import '../res/mo-jumbotron.less';
  * The jumbotron component to show movie details.
  * It can be included in a JawBone container inside a LoLoMo.
  */
-export default class MoJumbotron extends React.PureComponent {
+export default class MoJumbotron extends React.Component {
   static propTypes = {
     subject: React.PropTypes.objectOf(Immutable.Map).isRequired
+  }
+
+  shouldComponentUpdate(nextProps) {
+    return !nextProps.subject.equals(this.props.subject);
   }
 
   render() {
