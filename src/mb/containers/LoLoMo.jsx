@@ -65,6 +65,7 @@ export default class LoLoMo extends React.PureComponent {
       return (
         <LoLoMoRow
           key={key}
+          subjectKey={key}
           actions={actions}
           defaultTitle={title}
           model={model}

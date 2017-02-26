@@ -12,7 +12,7 @@ export default class MoCover extends React.Component {
   }
 
   shouldComponentUpdate(nextProps) {
-    return nextProps.subject.id !== this.props.subject.id;
+    return !nextProps.subject.equals(this.props.subject);
   }
 
   render() {

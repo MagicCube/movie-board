@@ -7,14 +7,14 @@ import LoMoCovers from './LoMoCovers';
 /**
  * Represent a single row in a LoLoMo container.
  */
-export default function LoLoMoRow({ actions, children, defaultTitle, hasSelection, model, selectedSubjectId }) {
+export default function LoLoMoRow({ actions, children, defaultTitle, hasSelection, model, selectedSubjectId, subjectKey }) {
   return (
     <div className={cs('mb-lolomo-row', { 'no-selection': !hasSelection }, { 'has-selection': hasSelection })}>
       <div className="row-head">
         <a className="title">{model.get('title') ? model.get('title') : defaultTitle}</a>
       </div>
       <div className="row-content">
-        <LoMoCovers subjects={model.get('subjects')} actions={actions} selectedSubjectId={selectedSubjectId} />
+        <LoMoCovers subjectKey={subjectKey} subjects={model.get('subjects')} hasSelection={hasSelection} selectedSubjectId={selectedSubjectId} actions={actions} />
       </div>
       {children}
     </div>
