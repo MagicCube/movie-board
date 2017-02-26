@@ -1,3 +1,27 @@
-.mb-mo-jumbotron {
+@import 'variables';
 
+.mb-mo-jumbotron {
+  .content {
+    padding: @mb-app-padding;
+
+    .rating-and-year {
+      .mb-rating, .year {
+        display: inline-block;
+        margin-right: 24px;
+      }
+
+      .year {
+        border: 1px solid @text-color;
+        padding: 0 4px 0 4px;
+      }
+    }
+
+    .details {
+      margin-top: 24px;
+    }
+
+    .summary {
+      margin-top: 24px;
+    }
+  }
 }
