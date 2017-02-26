@@ -4,13 +4,18 @@ import '../res/jaw-bone.less';
 
 
 /**
- * The famous JawBone component integrated with LoLoMo to open up a quick window for movie subject details.
+ * The JawBone component is a pure container which can be opened up when user select an item in LoLoMo.
+ * As a container, it allows to add a element as its single child.
  */
-export default function JawBone() {
+export default function JawBone({ children }) {
   return (
     <div className="mb-jaw-bone">
-      <h1>JawBone</h1>
-      <div>The famous JawBone component integrated with LoLoMo to open up a quick window for movie subject details.</div>
+      {children}
     </div>
   );
 }
+
+
+JawBone.propTypes = {
+  children: React.PropTypes.element.isRequired
+};
