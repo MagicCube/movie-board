@@ -44,6 +44,8 @@ export default class HomePage extends React.PureComponent {
   }
 
   render() {
+    // We only want to show inTheaters and comingSoon in the home page.
+    // This is why LoLoMo MUST be a pure component which is using shallow comparation.
     const models = {
       inTheaters: this.props.models.inTheaters,
       comingSoon: this.props.models.comingSoon,

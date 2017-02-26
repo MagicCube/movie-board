@@ -29,7 +29,7 @@ const TITLES = {
 /**
  * The famous design awarded "List Of List of Movie" container.
  */
-export default class LoLoMo extends React.Component {
+export default class LoLoMo extends React.PureComponent {
   static propTypes = {
     actions: React.PropTypes.shape({
       selectSubject: React.PropTypes.func.isRequired
