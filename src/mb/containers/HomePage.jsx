@@ -1,22 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 import modelActionCreators from '../actions/model-action-creators';
 import LoLoMo from './LoLoMo';
 
 
 @connect(
-  state => ({
-    models: state.models,
-  }),
-  dipatch => ({
-    loadComingSoon() {
-      dipatch(modelActionCreators.loadComingSoon());
-    },
-    loadInTheaters() {
-      dipatch(modelActionCreators.loadInTheaters());
-    }
-  })
+  state => ({ models: state.models }),
+  dispatch => bindActionCreators(modelActionCreators, dispatch)
 )
 /**
  * Home page container.

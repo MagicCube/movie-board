@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 import JawBone from '../components/JawBone';
 import lolomoActionCreators from '../actions/lolomo-action-creators';
@@ -16,11 +17,7 @@ const TITLES = {
 @connect(
   state => state.lolomo,
   dispatch => ({
-    actions: {
-      selectSubject(subject) {
-        dispatch(lolomoActionCreators.selectSubject(subject));
-      }
-    }
+    actions: bindActionCreators(lolomoActionCreators, dispatch)
   })
 )
 /**
