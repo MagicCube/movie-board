@@ -2,6 +2,7 @@ import Immutable from 'immutable';
 import React from 'react';
 
 import MoDetailRow from './MoDetailRow';
+import MoSlides from './MoSlides';
 import Rating from './Rating';
 
 import '../res/mo-jumbotron.less';
@@ -33,8 +34,8 @@ export default class MoJumbotron extends React.Component {
     const summary = subject.get('summary');
     return (
       <div className="mb-mo-jumbotron" data-subject-id={id}>
+        <h1><span className="title">{title}</span></h1>
         <div className="content">
-          <h1><span className="title">{title}</span></h1>
           <div className="general tab">
             <div className="rating-and-year">
               <Rating rating={rating} />
@@ -48,6 +49,7 @@ export default class MoJumbotron extends React.Component {
             <div className="summary">{summary}</div>
           </div>
         </div>
+        <MoSlides slides={subject.get('trailers') ? subject.get('trailers') : subject.get('photos')} />
       </div>
     );
   }
