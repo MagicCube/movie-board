@@ -31,7 +31,6 @@ export default class MoSlides extends React.Component {
         clearInterval(this.timer);
         this.timer = null;
       }
-      console.log('Reset');
       this.timer = setInterval(() => {
         this.setState((prevState, props) => {
           let slideIndex = prevState.slideIndex + 1;
@@ -40,7 +39,7 @@ export default class MoSlides extends React.Component {
           }
           return { slideIndex };
         });
-      }, 4000);
+      }, 3000);
       this.setState({
         slideIndex: 0
       });
@@ -72,8 +71,8 @@ export default class MoSlides extends React.Component {
         <div className="slides">
           <ReactCSSTransitionGroup
             transitionName="transition"
-            transitionEnterTimeout={1000}
-            transitionLeaveTimeout={1000}
+            transitionEnterTimeout={800}
+            transitionLeaveTimeout={800}
           >
             {slideElement}
           </ReactCSSTransitionGroup>
