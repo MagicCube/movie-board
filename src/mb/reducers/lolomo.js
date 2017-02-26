@@ -8,8 +8,7 @@ const initialState = {
 };
 
 export default handleActions({
-  [actionCreators.selectSubject](state, action) {
-    const { subject, rowKey } = action.payload;
+  [actionCreators.selectSubject](state, { payload: { subject, rowKey } }) {
     return {
       ...state,
       selectedSubjectId: subject ? subject.id : null,
