@@ -14,10 +14,7 @@ const TITLES = {
 
 
 @connect(
-  state => ({
-    selectedSubjectId: state.lolomo.selectedSubjectId,
-    selectedRowKey: state.lolomo.selectedRowKey
-  }),
+  state => state.lolomo,
   dispatch => ({
     actions: {
       selectSubject(subject) {
