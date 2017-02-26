@@ -1,49 +1,6 @@
-@import '~font-awesome/less/variables.less';
-
-@import 'variables';
-
 .mb-rating {
-  .average, .stars {
+  .average, .mb-rating-stars {
     display: inline-block;
     margin-right: 6px;
-  }
-
-  .stars {
-    .star {
-      display: inline-block;
-      margin-left: 3px;
-
-      &::before {
-        color: @mb-theme-color;
-        font-family: FontAwesome;
-        content: @fa-var-star
-      }
-
-      &.zero::before {
-        color: darken(@gray-text-color, 25%);
-      }
-
-      &.half {
-        position: relative;
-
-        &::before {
-          color: darken(@gray-text-color, 25%);
-          content: @fa-var-star;
-        }
-
-        .inner-star {
-          position: absolute;
-          left: 0;
-          top: 0;
-
-          &::before
-          {
-            color: @mb-theme-color;
-            font-family: FontAwesome;
-            content: @fa-var-star-half;
-          }
-        }
-      }
-    }
   }
 }
