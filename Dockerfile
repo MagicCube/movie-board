@@ -3,7 +3,7 @@ FROM node:boron
 MAINTAINER Henry Li <henry1943@163.com>
 
 # Use Alibaba's NPM mirror
-npm set registry https://registry.npm.taobao.org/
+RUN npm set registry https://registry.npm.taobao.org/
 
 # creat workdir
 RUN mkdir -p /usr/projects/movie-board
