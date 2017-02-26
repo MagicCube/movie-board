@@ -5,6 +5,9 @@ import MoCover from './MoCover';
 
 import '../res/lomo-covers.less';
 
+/**
+ * "List of Movie Covers", integrated with LoLoMo.
+ */
 export default function LoMoCovers(props) {
   const items = props.subjects.map(subject => (
     <li
