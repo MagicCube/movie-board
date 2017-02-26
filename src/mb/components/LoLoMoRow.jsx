@@ -7,6 +7,7 @@ import LoMoCovers from './LoMoCovers';
  * Represent a single row in a LoLoMo container.
  */
 export default function LoLoMoRow(props) {
+  console.log('LoLoMoRow.render()', props.model.title);
   return (
     <div className={cs('mb-lolomo-row', { 'no-selection': !props.hasSelection }, { 'has-selection': props.hasSelection })}>
       <div className="row-head">
