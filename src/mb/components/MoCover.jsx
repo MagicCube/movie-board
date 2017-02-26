@@ -18,7 +18,7 @@ const MoCover = pure((props) => {
 });
 
 MoCover.propTypes = {
-   subject: React.PropTypes.object.isRequired
+  subject: React.PropTypes.object.isRequired
 };
 
 export default MoCover;
