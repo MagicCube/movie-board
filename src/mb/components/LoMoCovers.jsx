@@ -15,7 +15,7 @@ export default function LoMoCovers(props) {
       className={cs('mb-lomo-covers-cell', { selected: props.selectedSubjectId === subject.id })}
       onClick={() => props.actions.selectSubject(subject)}
     >
-      <MoCover subject={subject} actions={props.actions} />
+      <MoCover subject={subject} />
       <div className="selection-indicator">
         <div className="arrow" />
       </div>
