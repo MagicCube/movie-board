@@ -30,20 +30,17 @@ export default class LoMoCovers extends React.Component {
     let shouldUpdate = false;
     if (nextProps.hasSelection !== this.props.hasSelection) {
       shouldUpdate = true;
-    }
-    else if (nextProps.selectedSubjectId !== this.props.selectedSubjectId && this.props.hasSelection) {
+    } else if (nextProps.selectedSubjectId !== this.props.selectedSubjectId && this.props.hasSelection) {
       shouldUpdate = true;
     }
     if (!nextProps.subjects.equals(this.props.subjects)) {
       shouldUpdate = true;
     }
-    //console.log(nextProps.subjectKey, nextProps.subjects.size, shouldUpdate);
     return shouldUpdate;
   }
 
   render() {
     const { actions, selectedSubjectId, subjects, subjectKey } = this.props;
-    console.log('LoMoCovers.render()', subjectKey);
 
     const items = subjects.map(subject => (
       <li
