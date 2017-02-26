@@ -44,9 +44,13 @@ export default class LoLoMo extends React.Component {
     selectedRowKey: null
   }
 
-  get jawBone() {
+  getJawBone() {
     if (!this._jawBone) {
-      this._jawBone = <JawBone />;
+      this._jawBone = (
+        <JawBone>
+          <h1>JawBone Placeholder</h1>
+        </JawBone>
+      );
     }
     return this._jawBone;
   }
@@ -58,7 +62,7 @@ export default class LoLoMo extends React.Component {
       const actions = {
         selectSubject: subject => this.props.actions.selectSubject({ subject, rowKey: key })
       };
-      const jawBone = this.props.selectedRowKey === key ? this.jawBone : null;
+      const jawBone = this.props.selectedRowKey === key ? this.getJawBone() : null;
       return (
         <LoLoMoRow
           key={key}
