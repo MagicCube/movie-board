@@ -1,3 +1,6 @@
+import Immutable from 'immutable';
+
+
 const API_KEY = '0df993c66c0c636e29ecbb5344252a4a';
 
 function fetch(path, requiresAPIKey = false, args = {}) {
@@ -23,7 +26,7 @@ export function get(
   path,
   requiresAPIKey = false,
   payloadHandler = payload => payload,
-  responseHandler = response => response) {
+  responseHandler = response => Immutable.fromJS(response)) {
   return async (payload) => {
     let url = null;
     if (typeof path === 'function') {

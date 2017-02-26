@@ -13,6 +13,7 @@ Re-design and implement Douban Movie using React and Redux.
 * Webpack
 * React including recompose, react-router
 * Redux including redux-actions, redux-promise
+* Immutable
 * jQuery
 * LESS
 * Font-awesome

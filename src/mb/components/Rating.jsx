@@ -6,11 +6,10 @@ import '../res/rating.less';
  * The rating component.
  */
 export default recompose.pure(({
-  rating: {
-    average,
-    stars
-  }
+  rating
 }) => {
+  const stars = rating.get('stars');
+  const average = rating.get('rating');
   const starElements = [];
   for (let i = 0; i < 50; i += 10) {
     if (stars - i >= 10) {

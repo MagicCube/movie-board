@@ -1,13 +1,14 @@
-import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import Immutable from 'immutable';
+import React from 'react';
 
 import modelActionCreators from '../actions/model-action-creators';
 import LoLoMo from './LoLoMo';
 
 
 @connect(
-  state => ({ models: state.models }),
+  state => ({ models: state.get('models') }),
   dispatch => ({
     actions: bindActionCreators(modelActionCreators, dispatch)
   })
@@ -17,21 +18,11 @@ import LoLoMo from './LoLoMo';
  */
 export default class HomePage extends React.PureComponent {
   static propTypes = {
-    models: React.PropTypes.shape({
-      inTheaters: React.PropTypes.object,
-      comingSoon: React.PropTypes.object
-    }),
+    models: React.PropTypes.objectOf(Immutable.Map),
     actions: React.PropTypes.shape({
       loadComingSoon: React.PropTypes.func.isRequired,
       loadInTheaters: React.PropTypes.func.isRequired
     }).isRequired
-  }
-
-  static defaultProps = {
-    models: {
-      inTheaters: { count: 0, total: 0, subjects: [] },
-      comingSoon: { count: 0, total: 0, subjects: [] }
-    }
   }
 
   componentDidMount() {
@@ -42,10 +33,10 @@ export default class HomePage extends React.PureComponent {
   render() {
     // We only want to show inTheaters and comingSoon in the home page.
     // This is why LoLoMo MUST be a pure component which is using shallow comparation.
-    const models = {
-      inTheaters: this.props.models.inTheaters,
-      comingSoon: this.props.models.comingSoon,
-    };
+    const models = Immutable.Map({
+      inTheaters: this.props.models.get('inTheaters'),
+      comingSoon: this.props.models.get('comingSoon')
+    });
     return (
       <div className="mb-page mb-home-page">
         <LoLoMo models={models} />

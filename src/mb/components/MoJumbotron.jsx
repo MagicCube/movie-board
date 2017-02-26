@@ -1,3 +1,4 @@
+import Immutable from 'immutable';
 import React from 'react';
 
 import MoDetailRow from './MoDetailRow';
@@ -11,27 +12,21 @@ import '../res/mo-jumbotron.less';
  */
 export default class MoJumbotron extends React.PureComponent {
   static propTypes = {
-    subject: React.PropTypes.shape({
-      id: React.PropTypes.string.isRequired,
-      title: React.PropTypes.string.isRequired,
-      year: React.PropTypes.string.isRequired,
-      genres: React.PropTypes.array.isRequired,
-      casts: React.PropTypes.array.isRequired,
-      directors: React.PropTypes.array.isRequired,
-      rating: React.PropTypes.object.isRequired,
-    }).isRequired
+    subject: React.PropTypes.objectOf(Immutable.Map).isRequired
   }
 
   render() {
+    const { subject } = this.props;
     const {
       id,
       title,
-      year,
-      genres,
-      casts,
-      directors,
-      rating
-    } = this.props.subject;
+      year
+    } = subject.toJS();
+    const rating = subject.get('rating');
+    const casts = subject.get('casts');
+    const directors = subject.get('directors');
+    const genres = subject.get('genres');
+    const summary = subject.get('summary');
     return (
       <div className="mb-mo-jumbotron" data-subject-id={id}>
         <div className="content">
@@ -46,8 +41,7 @@ export default class MoJumbotron extends React.PureComponent {
               <MoDetailRow type="directors" data={directors} />
               <MoDetailRow type="genres" data={genres} />
             </div>
-            <div className="summary">
-            </div>
+            <div className="summary">{summary}</div>
           </div>
         </div>
       </div>

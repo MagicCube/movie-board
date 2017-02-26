@@ -19,7 +19,7 @@ export default recompose.pure(({
   if (type === 'genres') {
     items = data.map(genre => <li key={genre}>{genre}</li>);
   } else {
-    items = data.map(people => <li key={people.id}>{people.name}</li>);
+    items = data.map(people => <li key={people.get('id')}>{people.get('name')}</li>);
   }
 
   return (

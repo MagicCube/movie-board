@@ -11,7 +11,7 @@ export default handleActions({
   [actionCreators.selectSubject](state, { payload: { subject, rowKey } }) {
     return {
       ...state,
-      selectedSubjectId: subject ? subject.id : null,
+      selectedSubjectId: subject ? subject.get('id') : null,
       selectedRowKey: subject ? rowKey : null
     };
   }

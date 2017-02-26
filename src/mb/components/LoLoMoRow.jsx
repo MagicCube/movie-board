@@ -1,4 +1,5 @@
 import cs from 'classnames';
+import Immutable from 'immutable';
 import React from 'react';
 
 import LoMoCovers from './LoMoCovers';
@@ -10,10 +11,10 @@ export default function LoLoMoRow({ actions, children, defaultTitle, hasSelectio
   return (
     <div className={cs('mb-lolomo-row', { 'no-selection': !hasSelection }, { 'has-selection': hasSelection })}>
       <div className="row-head">
-        <a className="title">{model.title ? model.title : defaultTitle}</a>
+        <a className="title">{model.get('title') ? model.get('title') : defaultTitle}</a>
       </div>
       <div className="row-content">
-        <LoMoCovers {...model} actions={actions} selectedSubjectId={selectedSubjectId} />
+        <LoMoCovers subjects={model.get('subjects')} actions={actions} selectedSubjectId={selectedSubjectId} />
       </div>
       {children}
     </div>
@@ -25,10 +26,7 @@ LoLoMoRow.propTypes = {
   children: React.PropTypes.element,
   defaultTitle: React.PropTypes.string.isRequired,
   hasSelection: React.PropTypes.bool,
-  model: React.PropTypes.shape({
-    subjects: React.PropTypes.array,
-    title: React.PropTypes.string
-  }).isRequired,
+  model: React.PropTypes.objectOf(Immutable.Map).isRequired,
   selectedSubjectId: React.PropTypes.string
 };
 

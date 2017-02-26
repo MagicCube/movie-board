@@ -1,4 +1,5 @@
 import cs from 'classnames';
+import Immutable from 'immutable';
 import React from 'react';
 
 import MoCover from './MoCover';
@@ -11,9 +12,9 @@ import '../res/lomo-covers.less';
 export default function LoMoCovers({ actions, selectedSubjectId, subjects }) {
   const items = subjects.map(subject => (
     <li
-      key={subject.id}
-      className={cs('mb-lomo-covers-cell', { selected: selectedSubjectId === subject.id })}
-      onClick={e => {
+      key={subject.get('id')}
+      className={cs('mb-lomo-covers-cell', { selected: selectedSubjectId === subject.get('id') })}
+      onClick={(e) => {
         actions.selectSubject(subject);
         $(document.body).animate({
           scrollTop: e.currentTarget.offsetTop - $('.mb-app-header').height() - 8
@@ -25,7 +26,7 @@ export default function LoMoCovers({ actions, selectedSubjectId, subjects }) {
         <div className="arrow" />
       </div>
     </li>
-  ));
+  )).toArray();
   return (
     <ul className="mb-lomo-covers">
       {items}
@@ -38,9 +39,7 @@ LoMoCovers.propTypes = {
     selectSubject: React.PropTypes.func
   }).isRequired,
   selectedSubjectId: React.PropTypes.string,
-  subjects: React.PropTypes.arrayOf(React.PropTypes.shape({
-    id: React.PropTypes.string
-  })),
+  subjects: React.PropTypes.objectOf(Immutable.List)
 };
 
 LoMoCovers.defaultProps = {

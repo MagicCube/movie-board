@@ -1,6 +1,7 @@
-import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import Immutable from 'immutable';
+import React from 'react';
 
 import JawBone from '../components/JawBone';
 import lolomoActionCreators from '../actions/lolomo-action-creators';
@@ -16,7 +17,7 @@ const TITLES = {
 
 
 @connect(
-  state => state.lolomo,
+  state => state.get('lolomo'),
   dispatch => ({
     actions: bindActionCreators(lolomoActionCreators, dispatch)
   })
@@ -29,7 +30,7 @@ export default class LoLoMo extends React.PureComponent {
     actions: React.PropTypes.shape({
       selectSubject: React.PropTypes.func.isRequired
     }).isRequired,
-    models: React.PropTypes.shape({}).isRequired,
+    models: React.PropTypes.objectOf(Immutable.Map),
     selectedSubjectId: React.PropTypes.string,
     selectedRowKey: React.PropTypes.string
   }
@@ -44,7 +45,7 @@ export default class LoLoMo extends React.PureComponent {
     selectedRowKey,
     selectedSubjectId
   }) {
-    const subject = selectedSubjectId ? models[selectedRowKey].subjects.find(subject => subject.id === selectedSubjectId) : null;
+    const subject = selectedSubjectId ? models.getIn([selectedRowKey, 'subjects']).find(s => s.get('id') === selectedSubjectId) : null;
     return (
       <JawBone>
         <MoJumbotron subject={subject} />
@@ -55,8 +56,7 @@ export default class LoLoMo extends React.PureComponent {
   render() {
     const { models, selectedRowKey, selectedSubjectId } = this.props;
 
-    const rows = Object.keys(models).map((key) => {
-      const model = models[key];
+    const rows = models.map((model, key) => {
       const title = TITLES[key];
       const actions = {
         selectSubject: subject => this.props.actions.selectSubject({ subject, rowKey: key })
@@ -74,7 +74,7 @@ export default class LoLoMo extends React.PureComponent {
           {jawBone}
         </LoLoMoRow>
       );
-    });
+    }).toArray();
 
     return (
       <div className="mb-lolomo">

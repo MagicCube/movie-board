@@ -2,6 +2,7 @@ import 'normalize.css';
 import 'font-awesome/less/font-awesome.less';
 
 import 'babel-polyfill';
+import 'immutable';
 import 'jquery';
 import 'react';
 import 'react-dom';

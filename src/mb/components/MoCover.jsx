@@ -1,3 +1,4 @@
+import Immutable from 'immutable';
 import React from 'react';
 
 import '../res/mo-cover.less';
@@ -7,9 +8,7 @@ import '../res/mo-cover.less';
  */
 export default class MoCover extends React.Component {
   static propTypes = {
-    subject: React.PropTypes.shape({
-      id: React.PropTypes.string.isRequired
-    }).isRequired
+    subject: React.PropTypes.objectOf(Immutable.Map).isRequired
   }
 
   shouldComponentUpdate(nextProps) {
@@ -22,7 +21,7 @@ export default class MoCover extends React.Component {
     } = this.props;
     return (
       <div className="mb-mo-cover">
-        <div className="cover-image" style={{ backgroundImage: `url(${subject.images.large})` }} />
+        <div className="cover-image" style={{ backgroundImage: `url(${subject.getIn(['images', 'large'])})` }} />
       </div>
     );
   }
