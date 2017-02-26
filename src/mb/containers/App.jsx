@@ -20,7 +20,7 @@ export default class App extends React.Component {
   render() {
     return (
       <div className="mb-app">
-        <AppHeader navbars={[]} />
+        <AppHeader />
         {this.props.children}
         <AppFooter />
       </div>
