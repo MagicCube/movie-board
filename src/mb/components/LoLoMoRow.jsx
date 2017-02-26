@@ -11,7 +11,7 @@ export default function LoLoMoRow({ actions, children, defaultTitle, hasSelectio
   return (
     <div className={cs('mb-lolomo-row', { 'no-selection': !hasSelection }, { 'has-selection': hasSelection })}>
       <div className="row-head">
-        <a className="title" href="javascript:void(0)">{model.title ? model.title : defaultTitle}</a>
+        <a className="title">{model.title ? model.title : defaultTitle}</a>
       </div>
       <div className="row-content">
         <LoMoCovers {...model} actions={actions} selectedSubjectId={selectedSubjectId} />
