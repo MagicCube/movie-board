@@ -60,11 +60,7 @@ module.exports = {
         include: /node_modules/
       },
       {
-        test: /\.jpg$/,
-        use: ['url-loader?name=assets/images/[name].[ext]&limit=10240']
-      },
-      {
-        test: /\.png$/,
+        test: /\.(jpg|png)$/,
         use: ['url-loader?name=assets/images/[name].[ext]&limit=10240']
       },
       {
