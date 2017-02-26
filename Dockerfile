@@ -11,7 +11,7 @@ WORKDIR /usr/projects/movie-board
 
 # Install dependencies
 COPY package.json /usr/projects/movie-board
-RUN npm install
+RUN npm install --production
 
 # copy other codes and resources
 COPY . /usr/projects/movie-board
