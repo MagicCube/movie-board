@@ -1,5 +1,5 @@
 # movie-board
-Re-design and implement Douban Movie with React and Redux.
+Re-design and implement Douban Movie using React and Redux.
 
 ## Screenshots
 > TBD
@@ -7,7 +7,7 @@ Re-design and implement Douban Movie with React and Redux.
 ## Major Components
 > TBD
 
-## Major packages used in this project
+## Major Packages Used in this project
 * ESLint
 * Babel
 * Webpack
@@ -18,7 +18,7 @@ Re-design and implement Douban Movie with React and Redux.
 * Font-awesome
 * Others including classnames, normalize.css
 
-## How to install
+## How to Install
 1. Clone the repo to your local storage.
 ``` shell
 git clone https://github.com/MagicCube/movie-board.git
@@ -28,7 +28,7 @@ git clone https://github.com/MagicCube/movie-board.git
 npm install
 ```
 
-## How to build and run
+## How to Build and Run
 * Run in **Webpack DevServer**.
 ``` shell
 npm start
