@@ -1,11 +1,12 @@
 import React from 'react';
+import { pure } from 'recompose';
 
 import '../res/mo-cover.less';
 
 /**
  * Movie cover component. It has been integrated in LoMoCovers.
  */
-export default function MoCover(props) {
+const MoCover = pure((props) => {
   const {
     subject
   } = props;
@@ -14,8 +15,10 @@ export default function MoCover(props) {
       <div className="cover-image" style={{ backgroundImage: `url(${subject.images.large})` }} />
     </div>
   );
-}
+});
 
 MoCover.propTypes = {
-  subject: React.PropTypes.object.isRequired
+   subject: React.PropTypes.object.isRequired
 };
+
+export default MoCover;
