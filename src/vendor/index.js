@@ -6,7 +6,6 @@ import 'jquery';
 import 'react';
 import 'react-dom';
 import 'react-redux';
-import 'recompose';
 import 'redux';
 import 'redux-actions';
 import 'redux-immutable';
