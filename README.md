@@ -34,6 +34,8 @@ npm install
 ``` shell
 npm start
 ```
+  Then open http://localhost:8080
+
 * Or build it in **production mode**.
 ``` shell
 npm run build
