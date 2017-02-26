@@ -8,16 +8,16 @@ const initialState = {
 };
 
 export default handleActions({
-  [actionCreators.loadInTheaters](state, action) {
+  [actionCreators.loadInTheaters](state, { payload: inTheaters }) {
     return {
       ...state,
-      inTheaters: action.payload
+      inTheaters
     };
   },
-  [actionCreators.loadComingSoon](state, action) {
+  [actionCreators.loadComingSoon](state, { payload: comingSoon }) {
     return {
       ...state,
-      comingSoon: action.payload
+      comingSoon
     };
   }
 }, initialState);
