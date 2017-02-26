@@ -3,6 +3,8 @@ const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const webpack = require('webpack');
 
+const devMode = process.env.NODE_ENV !== 'production';
+
 module.exports = {
   entry: {
     vendor: './src/vendor/index.js',
@@ -14,6 +16,7 @@ module.exports = {
     path: path.resolve(__dirname, 'public'),
     publicPath: '/'
   },
+  devtool: devMode ? 'source-map' : false,
   devServer: {
     compress: true,
     hot: false,
