@@ -20,20 +20,20 @@ Re-design and implement Douban Movie with React and Redux.
 
 ## How to install
 1. Clone the repo to your local storage.
-    ``` shell
-    git clone https://github.com/MagicCube/movie-board.git
-    ```
+  ``` shell
+  git clone https://github.com/MagicCube/movie-board.git
+  ```
 2. Install dependencies.
-    ``` shell
-    npm install
-    ```
+  ``` shell
+  npm install
+  ```
 
 ## How to build and run
 * Run in **Webpack DevServer**.
-    ``` shell
-    npm start
-    ```
+  ``` shell
+  npm start
+  ```
 * Or build it in **production mode**.
-    ``` shell
-    npm run build
-    ```
+  ``` shell
+  npm run build
+  ```
