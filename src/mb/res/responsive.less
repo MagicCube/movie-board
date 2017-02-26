@@ -1,0 +1,53 @@
+.mb-mo-cover-size(@factor) {
+  .mb-mo-cover {
+    width: 300px * @factor;
+    height: 400px * @factor;
+  }
+
+  .mb-lomo-covers {
+    height: 400px * @factor;
+  }
+}
+
+.mb-jaw-bone-size(@factor) {
+  .mb-jaw-bone {
+    height: 1080px * 0.45 * @factor;
+  }
+}
+
+
+
+.mb-responsive(@factor) {
+  .mb-mo-cover-size(@factor);
+  .mb-jaw-bone-size(@factor);
+}
+
+
+
+@media (min-width: 1920px) {
+  .mb-responsive(1.2);
+}
+
+@media (max-width: 1920px) {
+  .mb-responsive(1920 / 1920);
+}
+
+@media (max-width: 1600px) {
+  .mb-responsive(1600 / 1920);
+}
+
+@media (max-width: 1440px) {
+  .mb-responsive(1440 / 1920);
+}
+
+@media (max-width: 1280px) {
+  .mb-responsive(1280 / 1920);
+}
+
+@media (max-width: 1024px) {
+  .mb-responsive(1024 / 1920);
+}
+
+@media (max-width: 768px) {
+  .mb-responsive(768 / 1920);
+}
