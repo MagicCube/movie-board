@@ -8,12 +8,12 @@ import '../res/lomo-covers.less';
 /**
  * Represent a "List of Movie Covers" inside a LoLoMo Row.
  */
-export default function LoMoCovers(props) {
-  const items = props.subjects.map(subject => (
+export default function LoMoCovers({ actions, selectedSubjectId, subjects }) {
+  const items = subjects.map(subject => (
     <li
       key={subject.id}
-      className={cs('mb-lomo-covers-cell', { selected: props.selectedSubjectId === subject.id })}
-      onClick={() => props.actions.selectSubject(subject)}
+      className={cs('mb-lomo-covers-cell', { selected: selectedSubjectId === subject.id })}
+      onClick={() => actions.selectSubject(subject)}
     >
       <MoCover subject={subject} />
       <div className="selection-indicator">

@@ -6,17 +6,17 @@ import LoMoCovers from './LoMoCovers';
 /**
  * Represent a single row in a LoLoMo container.
  */
-export default function LoLoMoRow(props) {
-  console.log('LoLoMoRow.render()', props.model.title);
+export default function LoLoMoRow({ actions, children, defaultTitle, hasSelection, model, selectedSubjectId }) {
+  console.log('LoLoMoRow.render()', model.title);
   return (
-    <div className={cs('mb-lolomo-row', { 'no-selection': !props.hasSelection }, { 'has-selection': props.hasSelection })}>
+    <div className={cs('mb-lolomo-row', { 'no-selection': !hasSelection }, { 'has-selection': hasSelection })}>
       <div className="row-head">
-        <a className="title" href="javascript:void(0)">{props.model.title ? props.model.title : props.defaultTitle}</a>
+        <a className="title" href="javascript:void(0)">{model.title ? model.title : defaultTitle}</a>
       </div>
       <div className="row-content">
-        <LoMoCovers {...props.model} actions={props.actions} selectedSubjectId={props.selectedSubjectId} />
+        <LoMoCovers {...model} actions={actions} selectedSubjectId={selectedSubjectId} />
       </div>
-      {props.children}
+      {children}
     </div>
   );
 }

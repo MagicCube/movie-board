@@ -1,5 +1,4 @@
 import React from 'react';
-import { pure } from 'recompose';
 
 import '../res/mo-cover.less';
 
