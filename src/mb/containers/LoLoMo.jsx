@@ -4,6 +4,7 @@ import Immutable from 'immutable';
 import React from 'react';
 
 import JawBone from '../components/JawBone';
+import modelActionCreators from '../actions/model-action-creators';
 import lolomoActionCreators from '../actions/lolomo-action-creators';
 import LoLoMoRow from '../components/LoLoMoRow';
 import MoJumbotron from '../components/MoJumbotron';
@@ -19,7 +20,14 @@ const TITLES = {
 @connect(
   state => state.get('lolomo'),
   dispatch => ({
-    actions: bindActionCreators(lolomoActionCreators, dispatch)
+    actions: {
+      selectSubject(payload) {
+        dispatch(lolomoActionCreators.selectSubject(payload));
+      },
+      loadSubject(subjectId) {
+        dispatch(modelActionCreators.loadSubject(subjectId));
+      }
+    }
   })
 )
 /**
@@ -28,9 +36,10 @@ const TITLES = {
 export default class LoLoMo extends React.PureComponent {
   static propTypes = {
     actions: React.PropTypes.shape({
-      selectSubject: React.PropTypes.func.isRequired
+      selectSubject: React.PropTypes.func.isRequired,
+      loadSubject: React.PropTypes.func.isRequired
     }).isRequired,
-    models: React.PropTypes.objectOf(Immutable.Map),
+    models: React.PropTypes.objectOf(Immutable.Map).isRequired,
     selectedSubjectId: React.PropTypes.string,
     selectedRowKey: React.PropTypes.string
   }
@@ -59,7 +68,10 @@ export default class LoLoMo extends React.PureComponent {
     const rows = models.map((model, key) => {
       const title = TITLES[key];
       const actions = {
-        selectSubject: subject => this.props.actions.selectSubject({ subject, rowKey: key })
+        selectSubject: (subject) => {
+          this.props.actions.selectSubject({ subject, rowKey: key });
+          this.props.actions.loadSubject(subject.get('id'));
+        }
       };
       const jawBone = selectedRowKey === key ? this.createJawBone(this.props) : null;
       return (
