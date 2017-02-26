@@ -72,26 +72,18 @@
 }
 
 .has-selection {
-  .mb-lomo-covers-cell {
-    overflow: hidden;
-
-    &.selected {
-      overflow: visible;
-    }
-  }
-
-  .mb-mo-cover {
+  .mb-mo-cover .cover-image {
     transition: all 0.4s;
   }
 
   .mb-lomo-covers-cell:hover {
-    .mb-mo-cover {
+    .mb-mo-cover .cover-image {
       transform: scale(1.15);
     }
   }
 
   .mb-lomo-covers-cell.selected:hover {
-    .mb-mo-cover {
+    .mb-mo-cover .cover-image{
       transform: none;
     }
   }
