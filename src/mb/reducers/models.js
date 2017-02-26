@@ -16,6 +16,13 @@ export default handleActions({
     return state.set('comingSoon', comingSoon);
   },
   [actionCreators.loadSubject](state, { payload: subject }) {
-
+    const newState = state.map((model) => {
+      const entry = model.get('subjects').findEntry(s => s.get('id') === subject.get('id'));
+      if (entry) {
+        return model.mergeIn(['subjects', entry[0]], subject);
+      }
+      return model;
+    });
+    return newState;
   }
 }, initialState);
