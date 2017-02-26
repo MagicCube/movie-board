@@ -36,16 +36,18 @@ export default class MoJumbotron extends React.PureComponent {
       <div className="mb-mo-jumbotron" data-subject-id={id}>
         <div className="content">
           <h1><span className="title">{title}</span></h1>
-          <div className="rating-and-year">
-            <Rating rating={rating} />
-            <div className="year">{year}</div>
-          </div>
-          <div className="details">
-            <MoDetailRow type="casts" data={casts} />
-            <MoDetailRow type="directors" data={directors} />
-            <MoDetailRow type="genres" data={genres} />
-          </div>
-          <div className="summary">
+          <div className="general tab">
+            <div className="rating-and-year">
+              <Rating rating={rating} />
+              <div className="year">{year}</div>
+            </div>
+            <div className="details">
+              <MoDetailRow type="casts" data={casts} />
+              <MoDetailRow type="directors" data={directors} />
+              <MoDetailRow type="genres" data={genres} />
+            </div>
+            <div className="summary">
+            </div>
           </div>
         </div>
       </div>
