@@ -18,7 +18,10 @@ const TITLES = {
 
 
 @connect(
-  state => state.get('lolomo'),
+  state => ({
+    selectedSubjectId: state.getIn(['lolomo', 'selectedSubjectId']),
+    selectedRowKey: state.getIn(['lolomo', 'selectedRowKey']),
+  }),
   dispatch => ({
     actions: {
       selectSubject(payload) {
