@@ -27,12 +27,14 @@ LoLoMoRow.propTypes = {
   defaultTitle: React.PropTypes.string.isRequired,
   hasSelection: React.PropTypes.bool,
   model: React.PropTypes.objectOf(Immutable.Map).isRequired,
-  selectedSubjectId: React.PropTypes.string
+  selectedSubjectId: React.PropTypes.string,
+  subjectKey: React.PropTypes.string
 };
 
 LoLoMoRow.defaultProps = {
   actions: {},
   children: null,
   hasSelection: false,
-  selectedSubjectId: null
+  selectedSubjectId: null,
+  subjectKey: null
 };
