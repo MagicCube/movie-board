@@ -17,6 +17,28 @@
     padding-left: @mb-app-padding;
   }
 
+  .jaw-bone-transition-enter {
+    transition: all 0.4s;
+    transform: rotateX(-30deg);
+    transform-origin: top center;
+    opacity: 0;
+  }
+  .jaw-bone-transition-enter-active {
+    transform: rotateX(0);
+    opacity: 1;
+  }
+
+  .jaw-bone-transition-leave {
+    transition: all 0.3s;
+    transform: rotateX(0);
+    transform-origin: top center;
+    opacity: 1;
+  }
+  .jaw-bone-transition-leave-active {
+    opacity: 0;
+    transform: rotateX(-60deg);
+  }
+
 
 
   &:hover, &.has-selection {
