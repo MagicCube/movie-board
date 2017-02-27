@@ -16,18 +16,22 @@ function fetch(
   });
 }
 
+function getKey(url, args) {
+  return `${url}|${args ? JSON.stringify(args) : ''}`;
+}
+
 /**
  * Create a new GET resource.
  *
  * @param {string} path Path of resource.
- * @param {options} [{ requiresAPIKey: false }] Options including .
+ * @param {options} [{ requiresAPIKey: false, cache: false }] Options including .
  * @param {function} [payloadHandler=payload => payload] Handler of payload.
  * @param {function} [responseHandler=response => response] Handler of response.
  * @returns
  */
 export function get(
   path,
-  options,
+  options = { requresAPIKey: false, cache: false },
   payloadHandler = payload => payload,
   responseHandler = response => Immutable.fromJS(response)) {
   return async (payload) => {
@@ -38,7 +42,16 @@ export function get(
       url = path;
     }
     const args = payloadHandler(payload);
+    const key = getKey(url, args);
+    if (options.cache && sessionStorage.getItem(key)) {
+      const cachedObj = JSON.parse(sessionStorage.getItem(key));
+      return responseHandler(cachedObj);
+    }
     const response = await fetch(url, options, args);
-    return responseHandler(response);
+    if (options.cache) {
+      sessionStorage.setItem(key, JSON.stringify(response));
+    }
+    const result = responseHandler(response);
+    return result;
   };
 }
