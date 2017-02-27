@@ -14,7 +14,35 @@
   }
 
   .row-content {
+    position: relative;
     padding-left: @mb-app-padding;
+  }
+
+  .scrollable {
+    transition: transform 0.6s;
+  }
+
+  .scroll-button {
+    display: none;
+    color: white;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    top: 0;
+    bottom: 0;
+    width: @mb-app-padding;
+    font-size: 48px;
+
+    &.left {
+      left: 0;
+      background: linear-gradient(to left, rgba(0,0,0,0) 0%, rgba(0,0,0,0.9) 100%);
+    }
+
+    &.right {
+      right: 0;
+      background: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,0.9) 100%);
+    }
   }
 
   .jaw-bone-transition-enter {
@@ -40,6 +68,12 @@
   }
 
 
+
+  &:hover {
+    .scroll-button {
+      display: flex;
+    }
+  }
 
   &:hover, &.has-selection {
     .row-head {
