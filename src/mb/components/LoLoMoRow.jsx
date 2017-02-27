@@ -11,7 +11,7 @@ export default function LoLoMoRow({ actions, children, defaultTitle, hasSelectio
   return (
     <div className={cs('mb-lolomo-row', { 'no-selection': !hasSelection }, { 'has-selection': hasSelection })}>
       <div className="row-head">
-        <a className="title">{model.get('title') ? model.get('title') : defaultTitle}</a>
+        <a className="title h3">{model.get('title') ? model.get('title') : defaultTitle}</a>
       </div>
       <div className="row-content">
         <LoMoCovers subjectKey={subjectKey} subjects={model.get('subjects')} hasSelection={hasSelection} selectedSubjectId={selectedSubjectId} actions={actions} />
@@ -27,12 +27,14 @@ LoLoMoRow.propTypes = {
   defaultTitle: React.PropTypes.string.isRequired,
   hasSelection: React.PropTypes.bool,
   model: React.PropTypes.objectOf(Immutable.Map).isRequired,
-  selectedSubjectId: React.PropTypes.string
+  selectedSubjectId: React.PropTypes.string,
+  subjectKey: React.PropTypes.string
 };
 
 LoLoMoRow.defaultProps = {
   actions: {},
   children: null,
   hasSelection: false,
-  selectedSubjectId: null
+  selectedSubjectId: null,
+  subjectKey: null
 };

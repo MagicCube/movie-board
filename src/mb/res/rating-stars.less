@@ -1,4 +1,4 @@
-@import '~font-awesome/less/variables.less';
+@import '~octicons/utf-codes.less';
 
 @import 'variables';
 
@@ -10,8 +10,8 @@
 
     &::before {
       color: @mb-theme-color;
-      font-family: FontAwesome;
-      content: @fa-var-star
+      font-family: 'Octicons Regular';
+      content: @star
     }
 
     &.zero::before {
@@ -23,7 +23,6 @@
 
       &::before {
         color: darken(@gray-text-color, 25%);
-        content: @fa-var-star;
       }
 
       .inner-star {
@@ -34,8 +33,7 @@
         &::before
         {
           color: @mb-theme-color;
-          font-family: FontAwesome;
-          content: @fa-var-star-half;
+          font-family: 'Octicons Regular';
         }
       }
     }

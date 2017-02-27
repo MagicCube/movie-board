@@ -1,5 +1,9 @@
 # TODO List
-* Add Close Button
+
 * API Cache
+* Performance Optimization
+* Animations
 * Horizontally Scrollable
+* Progress Bar
+* Trailer Player
 * Mobile Responsive

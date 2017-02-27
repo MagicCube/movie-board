@@ -1,3 +1,26 @@
+@import 'variables.less';
+
+
 .mb-jaw-bone {
   background: black;
+  position: relative;
+
+  .content {
+    width: 100%;
+    height: 100%;
+  }
+
+  .close-button {
+    color: @link-hover-color;
+    display: block;
+    position: absolute;
+    right: @mb-app-padding;
+    top: @mb-app-padding;
+    z-index: 99;
+
+    .fa {
+      margin: 0;
+      padding: 0;
+    }
+  }
 }

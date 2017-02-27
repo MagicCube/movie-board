@@ -19,7 +19,7 @@ http://henryli-movie-board.daoapp.io/
 * Immutable
 * jQuery
 * LESS
-* Font-awesome
+* Octicons (Github Icons)
 * Others including classnames, normalize.css
 
 ## How to Install

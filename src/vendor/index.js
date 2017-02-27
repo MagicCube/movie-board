@@ -1,6 +1,3 @@
-import 'normalize.css';
-import 'font-awesome/less/font-awesome.less';
-
 import 'babel-polyfill';
 import 'immutable';
 import 'jquery';
@@ -14,3 +11,6 @@ import 'redux-actions';
 import 'redux-immutable';
 import 'redux-promise';
 import 'react-router';
+
+import 'normalize.css';
+import './octicons/index.less';

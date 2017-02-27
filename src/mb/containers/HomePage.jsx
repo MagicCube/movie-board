@@ -18,7 +18,7 @@ import LoLoMo from './LoLoMo';
  */
 export default class HomePage extends React.PureComponent {
   static propTypes = {
-    models: React.PropTypes.objectOf(Immutable.Map),
+    models: React.PropTypes.objectOf(Immutable.Map).isRequired,
     actions: React.PropTypes.shape({
       loadComingSoon: React.PropTypes.func.isRequired,
       loadInTheaters: React.PropTypes.func.isRequired

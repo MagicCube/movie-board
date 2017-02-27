@@ -1,4 +1,4 @@
-@import '~font-awesome/less/variables.less';
+@import '~octicons/utf-codes.less';
 
 @import 'variables';
 
@@ -11,10 +11,6 @@
   .row-head {
     padding-left: @mb-app-padding;
     margin-bottom: 20px;
-
-    .title {
-      font-size: @font-size-h3;
-    }
   }
 
   .row-content {
@@ -29,8 +25,8 @@
         color: @link-hover-color;
 
         &::after {
-          content: ' @{fa-var-chevron-right}';
-          font-family: FontAwesome;
+          content: ' @{chevron-right}';
+          font-family: 'Octicons Regular';
           font-size: smaller;
         }
       }

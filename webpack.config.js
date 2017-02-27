@@ -35,7 +35,10 @@ module.exports = {
     }
   },
   resolve: {
-    extensions: ['.js', '.jsx']
+    extensions: ['.js', '.jsx'],
+    alias: {
+      octicons: path.resolve(__dirname, './src/vendor/octicons')
+    }
   },
   module: {
     rules: [

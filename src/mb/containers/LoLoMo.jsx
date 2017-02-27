@@ -4,7 +4,6 @@ import Immutable from 'immutable';
 import React from 'react';
 
 import JawBone from '../components/JawBone';
-import modelActionCreators from '../actions/model-action-creators';
 import lolomoActionCreators from '../actions/lolomo-action-creators';
 import LoLoMoRow from '../components/LoLoMoRow';
 import MoJumbotron from '../components/MoJumbotron';
@@ -18,16 +17,12 @@ const TITLES = {
 
 
 @connect(
-  state => state.get('lolomo'),
+  state => ({
+    selectedSubjectId: state.getIn(['lolomo', 'selectedSubjectId']),
+    selectedRowKey: state.getIn(['lolomo', 'selectedRowKey']),
+  }),
   dispatch => ({
-    actions: {
-      selectSubject(payload) {
-        dispatch(lolomoActionCreators.selectSubject(payload));
-      },
-      loadSubject(subjectId) {
-        dispatch(modelActionCreators.loadSubject(subjectId));
-      }
-    }
+    actions: bindActionCreators(lolomoActionCreators, dispatch)
   })
 )
 /**
@@ -56,7 +51,7 @@ export default class LoLoMo extends React.PureComponent {
   }) {
     const subject = selectedSubjectId ? models.getIn([selectedRowKey, 'subjects']).find(s => s.get('id') === selectedSubjectId) : null;
     return (
-      <JawBone>
+      <JawBone actions={{ close: () => this.props.actions.selectSubject(null) }}>
         <MoJumbotron subject={subject} />
       </JawBone>
     );

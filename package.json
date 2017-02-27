@@ -44,7 +44,6 @@
     "extract-loader": "^0.1.0",
     "extract-text-webpack-plugin": "^2.0.0-rc.3",
     "file-loader": "^0.10.0",
-    "font-awesome": "^4.7.0",
     "html-loader": "^0.4.4",
     "immutable": "^3.8.1",
     "jquery": "^3.1.1",
