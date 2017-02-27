@@ -13,7 +13,7 @@ export default function JawBone({ children }) {
       <div className="content">
         {children}
       </div>
-      <a className="close-button" role="button"><i className="fa fa-times h2" /></a>
+      <a className="close-button" role="button"><i className="octicon icon-x h2" /></a>
     </div>
   );
 }

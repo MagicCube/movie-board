@@ -1,0 +1,24 @@
+.icon(@display: inline-block) {
+  font-family: 'Octicons Regular';
+  font-weight: normal;
+  font-style: normal;
+  display: @display;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  text-decoration: none;
+}
+
+.octicon(@name) {
+  @import "utf-codes.less";
+  &::before {
+    .icon();
+    content: @@name
+  }
+}
+
+.octicon-font() {
+  font-family: 'Octicons Regular';
+  src: url("octicons.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
