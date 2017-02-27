@@ -43,13 +43,16 @@ export function get(
     }
     const args = payloadHandler(payload);
     const key = getKey(url, args);
-    if (options.cache && sessionStorage.getItem(key)) {
-      const cachedObj = JSON.parse(sessionStorage.getItem(key));
-      return responseHandler(cachedObj);
+    const storage = options.cache;
+    if (storage.getItem) {
+      if (storage.getItem(key)) {
+        const cachedObj = JSON.parse(storage.getItem(key));
+        return responseHandler(cachedObj);
+      }
     }
     const response = await fetch(url, options, args);
-    if (options.cache) {
-      sessionStorage.setItem(key, JSON.stringify(response));
+    if (storage.getItem) {
+      storage.setItem(key, JSON.stringify(response));
     }
     const result = responseHandler(response);
     return result;
