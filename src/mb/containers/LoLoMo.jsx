@@ -51,7 +51,7 @@ export default class LoLoMo extends React.PureComponent {
   }) {
     const subject = selectedSubjectId ? models.getIn([selectedRowKey, 'subjects']).find(s => s.get('id') === selectedSubjectId) : null;
     return (
-      <JawBone>
+      <JawBone actions={{ close: () => this.props.actions.selectSubject(null) }}>
         <MoJumbotron subject={subject} />
       </JawBone>
     );
