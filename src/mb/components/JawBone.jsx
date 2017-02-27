@@ -10,7 +10,10 @@ import '../res/jaw-bone.less';
 export default function JawBone({ children }) {
   return (
     <div className="mb-jaw-bone">
-      {children}
+      <div className="content">
+        {children}
+      </div>
+      <a className="close-button" role="button"><i className="fa fa-times h2" /></a>
     </div>
   );
 }
