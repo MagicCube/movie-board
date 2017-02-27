@@ -11,7 +11,7 @@
     &::before {
       color: @mb-theme-color;
       font-family: 'Octicons Regular';
-      content: @star
+      content: @star;
     }
 
     &.zero::before {
@@ -29,11 +29,14 @@
         position: absolute;
         left: 0;
         top: 0;
+        width: 0.45em;
+        overflow: hidden;
 
         &::before
         {
           color: @mb-theme-color;
           font-family: 'Octicons Regular';
+          content: @star;
         }
       }
     }
