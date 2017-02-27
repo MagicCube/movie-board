@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import Immutable from 'immutable';
 import React from 'react';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 import JawBone from '../components/JawBone';
 import lolomoActionCreators from '../actions/lolomo-action-creators';
@@ -51,6 +52,7 @@ export default class LoLoMo extends React.PureComponent {
   }) {
     const subject = selectedSubjectId ? models.getIn([selectedRowKey, 'subjects']).find(s => s.get('id') === selectedSubjectId) : null;
     return (
+
       <JawBone actions={{ close: () => this.props.actions.selectSubject(null) }}>
         <MoJumbotron subject={subject} />
       </JawBone>
@@ -79,7 +81,13 @@ export default class LoLoMo extends React.PureComponent {
           hasSelection={selectedRowKey === key}
           selectedSubjectId={selectedSubjectId}
         >
-          {jawBone}
+          <ReactCSSTransitionGroup
+            transitionName="jaw-bone-transition"
+            transitionEnterTimeout={400}
+            transitionLeaveTimeout={300}
+          >
+            {jawBone}
+          </ReactCSSTransitionGroup>
         </LoLoMoRow>
       );
     }).toArray();

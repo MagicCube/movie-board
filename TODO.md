@@ -1,9 +1,9 @@
 # TODO List
 
-* API Cache
 * Performance Optimization
-* Animations
 * Horizontally Scrollable
+* TabBar
 * Progress Bar
+* TOP 250
 * Trailer Player
 * Mobile Responsive
