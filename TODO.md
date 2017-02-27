@@ -2,6 +2,7 @@
 
 * Performance Optimization
 * Horizontally Scrollable
+* TabBar
 * Progress Bar
 * TOP 250
 * Trailer Player
