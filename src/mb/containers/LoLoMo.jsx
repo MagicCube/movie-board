@@ -4,7 +4,6 @@ import Immutable from 'immutable';
 import React from 'react';
 
 import JawBone from '../components/JawBone';
-import modelActionCreators from '../actions/model-action-creators';
 import lolomoActionCreators from '../actions/lolomo-action-creators';
 import LoLoMoRow from '../components/LoLoMoRow';
 import MoJumbotron from '../components/MoJumbotron';
@@ -23,14 +22,7 @@ const TITLES = {
     selectedRowKey: state.getIn(['lolomo', 'selectedRowKey']),
   }),
   dispatch => ({
-    actions: {
-      selectSubject(payload) {
-        dispatch(lolomoActionCreators.selectSubject(payload));
-      },
-      loadSubject(subjectId) {
-        dispatch(modelActionCreators.loadSubject(subjectId));
-      }
-    }
+    actions: bindActionCreators(lolomoActionCreators, dispatch)
   })
 )
 /**
