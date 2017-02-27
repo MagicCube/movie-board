@@ -11,7 +11,7 @@ export default function LoLoMoRow({ actions, children, defaultTitle, hasSelectio
   return (
     <div className={cs('mb-lolomo-row', { 'no-selection': !hasSelection }, { 'has-selection': hasSelection })}>
       <div className="row-head">
-        <a className="title">{model.get('title') ? model.get('title') : defaultTitle}</a>
+        <a className="title h3">{model.get('title') ? model.get('title') : defaultTitle}</a>
       </div>
       <div className="row-content">
         <LoMoCovers subjectKey={subjectKey} subjects={model.get('subjects')} hasSelection={hasSelection} selectedSubjectId={selectedSubjectId} actions={actions} />
