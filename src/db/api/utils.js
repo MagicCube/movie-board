@@ -3,7 +3,10 @@ import Immutable from 'immutable';
 
 const API_KEY = '0df993c66c0c636e29ecbb5344252a4a';
 
-function fetch(path, requiresAPIKey = false, args = {}) {
+function fetch(
+  path,
+  { requiresAPIKey = false } = {},
+  args = {}) {
   return $.ajax({
     url: path,
     data: {
@@ -13,18 +16,22 @@ function fetch(path, requiresAPIKey = false, args = {}) {
   });
 }
 
+function getKey(url, args) {
+  return `${url}|${args ? JSON.stringify(args) : ''}`;
+}
+
 /**
  * Create a new GET resource.
  *
  * @param {string} path Path of resource.
- * @param {bool} [false] Whether API Key is needed.
+ * @param {options} [{ requiresAPIKey: false, cache: false }] Options including .
  * @param {function} [payloadHandler=payload => payload] Handler of payload.
  * @param {function} [responseHandler=response => response] Handler of response.
  * @returns
  */
 export function get(
   path,
-  requiresAPIKey = false,
+  options = { requresAPIKey: false, cache: false },
   payloadHandler = payload => payload,
   responseHandler = response => Immutable.fromJS(response)) {
   return async (payload) => {
@@ -35,7 +42,19 @@ export function get(
       url = path;
     }
     const args = payloadHandler(payload);
-    const response = await fetch(url, requiresAPIKey, args);
-    return responseHandler(response);
+    const key = getKey(url, args);
+    const storage = options.cache;
+    if (storage.getItem) {
+      if (storage.getItem(key)) {
+        const cachedObj = JSON.parse(storage.getItem(key));
+        return responseHandler(cachedObj);
+      }
+    }
+    const response = await fetch(url, options, args);
+    if (storage.getItem) {
+      storage.setItem(key, JSON.stringify(response));
+    }
+    const result = responseHandler(response);
+    return result;
   };
 }
