@@ -84,7 +84,7 @@ export default class LoLoMo extends React.PureComponent {
           <ReactCSSTransitionGroup
             transitionName="jaw-bone-transition"
             transitionEnterTimeout={400}
-            transitionLeaveTimeout={300}
+            transitionLeaveTimeout={200}
           >
             {jawBone}
           </ReactCSSTransitionGroup>
