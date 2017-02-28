@@ -37,11 +37,28 @@
   }
 }
 
+.mb-lo-in-tab-size(@factor) {
+  .mb-lo-casts {
+    .thumbnail {
+      width: 150px * @factor;
+      height: 200px * @factor;
+    }
+  }
+
+  .mb-lo-trailers {
+    .thumbnail {
+      width: 355px * @factor;
+      height: 200px * @factor;
+    }
+  }
+}
+
 
 
 .mb-responsive(@factor) {
   .mb-mo-cover-size(@factor);
   .mb-jaw-bone-size(@factor);
+  .mb-lo-in-tab-size(@factor);
 }
 
 
