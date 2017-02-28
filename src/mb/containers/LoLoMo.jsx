@@ -21,6 +21,7 @@ const TITLES = {
   state => ({
     selectedSubjectId: state.getIn(['lolomo', 'selectedSubjectId']),
     selectedRowKey: state.getIn(['lolomo', 'selectedRowKey']),
+    tabs: state.getIn(['lolomo', 'tabs'])
   }),
   dispatch => ({
     actions: bindActionCreators(lolomoActionCreators, dispatch)
@@ -32,12 +33,14 @@ const TITLES = {
 export default class LoLoMo extends React.PureComponent {
   static propTypes = {
     actions: React.PropTypes.shape({
+      loadSubject: React.PropTypes.func.isRequired,
       selectSubject: React.PropTypes.func.isRequired,
-      loadSubject: React.PropTypes.func.isRequired
+      selectTab: React.PropTypes.func.isRequired
     }).isRequired,
     models: React.PropTypes.objectOf(Immutable.Map).isRequired,
     selectedSubjectId: React.PropTypes.string,
-    selectedRowKey: React.PropTypes.string
+    selectedRowKey: React.PropTypes.string,
+    tabs: React.PropTypes.objectOf(Immutable.Map).isRequired
   }
 
   static defaultProps = {
@@ -46,15 +49,23 @@ export default class LoLoMo extends React.PureComponent {
   }
 
   createJawBone({
+    actions: {
+      selectSubject,
+      selectTab
+    },
     models,
     selectedRowKey,
-    selectedSubjectId
+    selectedSubjectId,
+    tabs
   }) {
     const subject = selectedSubjectId ? models.getIn([selectedRowKey, 'subjects']).find(s => s.get('id') === selectedSubjectId) : null;
     return (
-
-      <JawBone actions={{ close: () => this.props.actions.selectSubject(null) }}>
-        <MoJumbotron subject={subject} />
+      <JawBone actions={{ close: () => selectSubject(null) }}>
+        <MoJumbotron
+          subject={subject}
+          selectedTabId={tabs.get('selectedTabId')}
+          actions={{ selectTab: tabId => selectTab(tabId) }}
+        />
       </JawBone>
     );
   }

@@ -1,9 +1,10 @@
 import Immutable from 'immutable';
 import React from 'react';
 
-import MoDetailRow from './MoDetailRow';
+import MoGeneral from './MoGeneral';
 import MoSlides from './MoSlides';
-import Rating from './Rating';
+import Tab from './MoJumbotronTab';
+import Tabs from './MoJumbotronTabs';
 
 import '../res/mo-jumbotron.less';
 
@@ -13,42 +14,32 @@ import '../res/mo-jumbotron.less';
  */
 export default class MoJumbotron extends React.Component {
   static propTypes = {
+    actions: React.PropTypes.object.isRequired,
+    selectedTabId: React.PropTypes.string.isRequired,
     subject: React.PropTypes.objectOf(Immutable.Map).isRequired
   }
 
   shouldComponentUpdate(nextProps) {
-    return !nextProps.subject.equals(this.props.subject);
+    return !nextProps.subject.equals(this.props.subject) || nextProps.selectedTabId !== this.props.selectedTabId;
   }
 
   render() {
-    const { subject } = this.props;
+    const { actions, selectedTabId, subject } = this.props;
     const {
       id,
-      title,
-      year
+      title
     } = subject.toJS();
-    const rating = subject.get('rating');
-    const casts = subject.get('casts');
-    const directors = subject.get('directors');
-    const genres = subject.get('genres');
-    const summary = subject.get('summary');
     return (
       <div className="mb-mo-jumbotron" data-subject-id={id}>
         <h1><span className="title">{title}</span></h1>
-        <div className="content">
-          <div className="general tab">
-            <div className="rating-and-year">
-              <Rating rating={rating} />
-              <div className="year">{year}</div>
-            </div>
-            <div className="details">
-              <MoDetailRow type="casts" data={casts} />
-              <MoDetailRow type="directors" data={directors} />
-              <MoDetailRow type="genres" data={genres} />
-            </div>
-            <div className="summary">{summary}</div>
-          </div>
-        </div>
+        <Tabs actions={actions} selectedTabId={selectedTabId}>
+          <Tab id="general" title="总览">
+            <MoGeneral subject={subject} />
+          </Tab>
+          <Tab id="trailers" title="预告片"></Tab>
+          <Tab id="casts" title="演员表"></Tab>
+          <Tab id="comments" title="评论"></Tab>
+        </Tabs>
         <MoSlides slides={subject.get('trailers') && subject.get('trailers').size ? subject.get('trailers') : subject.get('photos')} />
       </div>
     );
