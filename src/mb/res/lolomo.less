@@ -23,8 +23,9 @@
   }
 
   .scroll-button {
-    display: none;
+    opacity: 0;
     color: white;
+    display: flex;
     position: absolute;
     justify-content: center;
     align-items: center;
@@ -33,6 +34,7 @@
     bottom: 0;
     width: @mb-app-padding;
     font-size: 48px;
+    transition: opacity 0.4s;
 
     &.left {
       left: 0;
@@ -71,7 +73,11 @@
 
   &:hover {
     .scroll-button {
-      display: flex;
+      opacity: 0.85;
+
+      &:hover {
+        opacity: 1;
+      }
     }
   }
 

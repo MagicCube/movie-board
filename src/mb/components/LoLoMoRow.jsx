@@ -27,6 +27,38 @@ export default class LoLoMoRow extends React.Component {
     subjectKey: null
   }
 
+  scrollLeft = () => {
+    let scroll = this.getScroll();
+    scroll -= this.scrollable.offsetWidth - 40; // 40 is the @mb-app-padding
+    if (scroll < 0) {
+      scroll = 0;
+    }
+    this.setScroll(scroll);
+  }
+
+  scrollRight = () => {
+    let scroll = this.getScroll();
+    scroll += this.scrollable.offsetWidth - 40; // 40 is the @mb-app-padding
+    const max = this.scrollable.scrollWidth - this.scrollable.offsetWidth;
+    if (scroll > max) {
+      scroll = max;
+    }
+    this.setScroll(scroll);
+  }
+
+  getScroll() {
+    let transform = this.scrollable.style.transform;
+    if (!transform.startsWith('translate')) {
+      transform = 'translateX(0px)';
+    }
+    const translateX = parseInt(transform.match(/\(([-\d]+)/)[1], 0);
+    return Math.abs(translateX);
+  }
+
+  setScroll(scroll) {
+    this.scrollable.style.transform = `translate(${-scroll}px)`;
+  }
+
   render() {
     const { actions, children, defaultTitle, hasSelection, model, selectedSubjectId, subjectKey } = this.props;
     return (
@@ -35,11 +67,11 @@ export default class LoLoMoRow extends React.Component {
           <a className="title h3">{model.get('title') ? model.get('title') : defaultTitle}</a>
         </div>
         <div className="row-content">
-          <a className="left scroll-button" role="button"><i className="octicon icon-chevron-left" /></a>
+          <a className="left scroll-button" role="button" onClick={this.scrollLeft}><i className="octicon icon-chevron-left" /></a>
           <div ref={(div) => { this.scrollable = div; }} className="scrollable">
             <LoMoCovers subjectKey={subjectKey} subjects={model.get('subjects')} hasSelection={hasSelection} selectedSubjectId={selectedSubjectId} actions={actions} />
           </div>
-          <a className="right scroll-button" role="button"><i className="octicon icon-chevron-right" /></a>
+          <a className="right scroll-button" role="button" onClick={this.scrollRight}><i className="octicon icon-chevron-right" /></a>
         </div>
         {children}
       </div>
