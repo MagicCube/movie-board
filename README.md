@@ -8,11 +8,11 @@ http://henryli-movie-board.daoapp.io/
 > Since it's running on a free Docker host, I just can't guarantee it would be always working.
 
 ## Screenshots
+![](screenshots/screen-flow.gif)
+
 ![](screenshots/01.png)
 
 ![](screenshots/02.png)
-
-![](screenshots/screen-flow.gif)
 
 
 
