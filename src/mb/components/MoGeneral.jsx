@@ -4,6 +4,8 @@ import React from 'react';
 import MoDetailRow from './MoDetailRow';
 import Rating from './Rating';
 
+import '../res/mo-general.less';
+
 
 export default class MoGeneral extends React.PureComponent {
   static propTypes = {
@@ -22,7 +24,7 @@ export default class MoGeneral extends React.PureComponent {
     const summary = subject.get('summary');
 
     return (
-      <div className="content">
+      <div className="mb-mo-general">
         <div className="general tab">
           <div className="rating-and-year">
             <Rating rating={rating} />
