@@ -77,8 +77,12 @@ export default class LoLoMo extends React.PureComponent {
       const title = TITLES[key];
       const actions = {
         selectSubject: (subject) => {
-          this.props.actions.selectSubject({ subject, rowKey: key });
-          this.props.actions.loadSubject(subject.get('id'));
+          if (subject && subject.get('id') === selectedSubjectId) {
+            this.props.actions.selectSubject(null);
+          } else {
+            this.props.actions.selectSubject({ subject, rowKey: key });
+            this.props.actions.loadSubject(subject.get('id'));
+          }
         }
       };
       const jawBone = selectedRowKey === key ? this.createJawBone(this.props) : null;
