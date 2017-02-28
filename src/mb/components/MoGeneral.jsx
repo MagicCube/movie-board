@@ -25,7 +25,7 @@ export default class MoGeneral extends React.PureComponent {
 
     return (
       <div className="mb-mo-general">
-        <div className="general tab">
+        <div className="general">
           <div className="rating-and-year">
             <Rating rating={rating} />
             <div className="year">{year}</div>
