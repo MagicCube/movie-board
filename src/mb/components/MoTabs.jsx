@@ -1,9 +1,9 @@
 import React from 'react';
 
-import '../res/mo-jumbotron-tabs.less';
+import '../res/mo-tabs.less';
 
 
-export default class MoJumbotronTabs extends React.Component {
+export default class MoTabs extends React.Component {
   static propTypes = {
     actions: React.PropTypes.shape({
       selectTab: React.PropTypes.func.isRequired
@@ -35,7 +35,7 @@ export default class MoJumbotronTabs extends React.Component {
       </li>
     ));
     return (
-      <div className="mb-mo-jumbotron-tabs">
+      <div className="mb-mo-tabs">
         <div className="tab-body">
           {selectedTab}
         </div>

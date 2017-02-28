@@ -3,8 +3,8 @@ import React from 'react';
 
 import MoGeneral from './MoGeneral';
 import MoSlides from './MoSlides';
-import Tab from './MoJumbotronTab';
-import Tabs from './MoJumbotronTabs';
+import MoTab from './MoTab';
+import MoTabs from './MoTabs';
 
 import '../res/mo-jumbotron.less';
 
@@ -32,14 +32,14 @@ export default class MoJumbotron extends React.Component {
     return (
       <div className="mb-mo-jumbotron" data-subject-id={id}>
         <h1><span className="title">{title}</span></h1>
-        <Tabs actions={actions} selectedTabId={selectedTabId}>
-          <Tab id="general" title="总览">
+        <MoTabs actions={actions} selectedTabId={selectedTabId}>
+          <MoTab id="general" title="总览">
             <MoGeneral subject={subject} />
-          </Tab>
-          <Tab id="trailers" title="预告片"></Tab>
-          <Tab id="casts" title="演员表"></Tab>
-          <Tab id="comments" title="评论"></Tab>
-        </Tabs>
+          </MoTab>
+          <MoTab id="trailers" title="预告片"></MoTab>
+          <MoTab id="casts" title="演员"></MoTab>
+          <MoTab id="comments" title="评论"></MoTab>
+        </MoTabs>
         <MoSlides slides={subject.get('trailers') && subject.get('trailers').size ? subject.get('trailers') : subject.get('photos')} />
       </div>
     );

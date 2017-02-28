@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class MoJumbotronTab extends React.Component {
+export default class MoTab extends React.Component {
   static propTypes = {
     id: React.PropTypes.string.isRequired,
     title: React.PropTypes.string.isRequired,
@@ -14,7 +14,7 @@ export default class MoJumbotronTab extends React.Component {
   render() {
     const { id, children } = this.props;
     return (
-      <div id={id} className="mb-mo-jumbotron-tab">
+      <div id={id} className="mb-mo-tab">
         {children}
       </div>
     );
