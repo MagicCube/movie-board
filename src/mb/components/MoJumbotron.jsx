@@ -2,6 +2,7 @@ import Immutable from 'immutable';
 import React from 'react';
 
 import LoCasts from './LoCasts';
+import LoComments from './LoComments';
 import LoTrailers from './LoTrailers';
 import MoGeneral from './MoGeneral';
 import MoSlides from './MoSlides';
@@ -45,7 +46,9 @@ export default class MoJumbotron extends React.Component {
             <MoTab id="trailers" title="预告片">
               <LoTrailers trailers={subject.get('trailers')} />
             </MoTab>
-            <MoTab id="comments" title="评论"></MoTab>
+            <MoTab id="comments" title="评论">
+              <LoComments comments={subject.get('popular_comments')} />
+            </MoTab>
           </MoTabs>
         </div>
         <MoSlides slides={subject.get('trailers') && subject.get('trailers').size ? subject.get('trailers') : subject.get('photos')} />
