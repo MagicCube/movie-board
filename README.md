@@ -12,7 +12,12 @@ http://henryli-movie-board.daoapp.io/
 
 ![](screenshots/02.png)
 
+![](screenshots/screen-flow.gif)
+
+
+
 ## Major Packages Used in this project
+
 * ESLint
 * Babel
 * Webpack
