@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 import '../res/mo-tabs.less';
 
@@ -37,7 +38,13 @@ export default class MoTabs extends React.Component {
     return (
       <div className="mb-mo-tabs">
         <div className="tab-body">
-          {selectedTab}
+          <ReactCSSTransitionGroup
+            transitionName="tab-transition"
+            transitionEnterTimeout={500}
+            transitionLeaveTimeout={500}
+          >
+            {selectedTab}
+          </ReactCSSTransitionGroup>
         </div>
         <nav className="tab-nav">
           <ul>

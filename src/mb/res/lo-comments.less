@@ -1,0 +1,31 @@
+@import 'variables';
+
+
+.mb-lo-comments {
+  display: block;
+  width: 50%;
+  height: 75%;
+  overflow: auto;
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 @mb-app-padding;
+
+  .mb-lo-comment {
+    margin: 0;
+    padding: 10px 0;
+    border-bottom: 1px solid #333;
+
+    .info {
+      margin-top: 10px;
+
+      .author {
+        color: @gray-text-color;
+        display: inline-block;
+      }
+
+      .mb-rating-stars {
+        float: right;
+      }
+    }
+  }
+}

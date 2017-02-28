@@ -1,16 +1,23 @@
 # movie-board
 Re-design and implement Douban Movie using React and Redux.
+There's no 3rd party UI libraries used in this project.
+All components are designed and implemented only for this project.
 
 ## Online Demo @ Daocloud
 http://henryli-movie-board.daoapp.io/
 > Since it's running on a free Docker host, I just can't guarantee it would be always working.
 
 ## Screenshots
+![](screenshots/screen-flow.gif)
+
 ![](screenshots/01.png)
 
 ![](screenshots/02.png)
 
+
+
 ## Major Packages Used in this project
+
 * ESLint
 * Babel
 * Webpack
