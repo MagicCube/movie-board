@@ -10,7 +10,7 @@ import '../res/jaw-bone.less';
 export default function JawBone({ children, actions: { close } }) {
   return (
     <div className="mb-jaw-bone">
-      <div className="content">
+      <div className="jaw-bone-container">
         {children}
       </div>
       <a className="close-button" role="button" onClick={typeof close === 'function' ? close : null}><i className="octicon icon-x h2" /></a>
