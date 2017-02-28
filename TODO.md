@@ -1,8 +1,7 @@
 # TODO List
 
-* TabBar
-* Trailer Player
 * Progress Bar
-* TOP 250
+* Trailer Player
 * Performance Optimization
+* TOP 250
 * Mobile Responsive
