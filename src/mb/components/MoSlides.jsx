@@ -70,7 +70,7 @@ export default class MoSlides extends React.Component {
       <div className="mb-mo-slides">
         <div className="slides">
           <ReactCSSTransitionGroup
-            transitionName="transition"
+            transitionName="slide-transition"
             transitionEnterTimeout={800}
             transitionLeaveTimeout={800}
           >
