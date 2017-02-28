@@ -1,7 +1,6 @@
 # TODO List
 
 * Performance Optimization
-* Horizontally Scrollable
 * TabBar
 * Progress Bar
 * TOP 250
