@@ -1,6 +1,8 @@
 import Immutable from 'immutable';
 import React from 'react';
 
+import LoCasts from './LoCasts';
+import LoTrailers from './LoTrailers';
 import MoGeneral from './MoGeneral';
 import MoSlides from './MoSlides';
 import MoTab from './MoTab';
@@ -31,15 +33,21 @@ export default class MoJumbotron extends React.Component {
     } = subject.toJS();
     return (
       <div className="mb-mo-jumbotron" data-subject-id={id}>
-        <h1><span className="title">{title}</span></h1>
-        <MoTabs actions={actions} selectedTabId={selectedTabId}>
-          <MoTab id="general" title="总览">
-            <MoGeneral subject={subject} />
-          </MoTab>
-          <MoTab id="trailers" title="预告片"></MoTab>
-          <MoTab id="casts" title="演员"></MoTab>
-          <MoTab id="comments" title="评论"></MoTab>
-        </MoTabs>
+        <div className="jumbotron-content">
+          <h1 className="subject-title"><span className="title">{title}</span></h1>
+          <MoTabs actions={actions} selectedTabId={selectedTabId}>
+            <MoTab id="general" title="总览">
+              <MoGeneral subject={subject} />
+            </MoTab>
+            <MoTab id="casts" title="演员">
+              <LoCasts casts={subject.get('casts')} />
+            </MoTab>
+            <MoTab id="trailers" title="预告片">
+              <LoTrailers trailers={subject.get('trailers')} />
+            </MoTab>
+            <MoTab id="comments" title="评论"></MoTab>
+          </MoTabs>
+        </div>
         <MoSlides slides={subject.get('trailers') && subject.get('trailers').size ? subject.get('trailers') : subject.get('photos')} />
       </div>
     );

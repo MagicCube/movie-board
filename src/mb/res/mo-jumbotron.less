@@ -5,10 +5,51 @@
   width: 100%;
   height: 100%;
 
-  h1 {
-    padding-left: @mb-app-padding;
-    padding-top: @mb-app-padding;
-    margin: 0;
+  .jumbotron-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+
+    .subject-title {
+      padding-left: @mb-app-padding;
+      padding-top: @mb-app-padding;
+      margin: 0;
+    }
+
+    .mb-mo-tabs {
+      flex-grow: 1;
+      z-index: 2;
+
+      .mb-mo-tab {
+        .mb-lo-common {
+          display: flex;
+          height: 100%;
+          list-style: none;
+          justify-content: center;
+          align-items: center;
+          padding: 0 0 20px;
+          margin: 0;
+
+          li {
+            display: block;
+            margin: 0 20px;
+
+            .thumbnail {
+              background-repeat: no-repeat;
+              background-size: cover;
+              border: 3px solid white;
+              box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+            }
+
+            .title {
+              margin-top: 5px;
+              text-align: center;
+            }
+          }
+        }
+      }
+    }
   }
 
   .mb-mo-slides {

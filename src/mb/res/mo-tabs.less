@@ -2,6 +2,8 @@
 
 .mb-mo-tabs {
   width: 100%;
+  position: relative;
+
   .tab-nav {
     display: flex;
     justify-content: center;
@@ -29,6 +31,22 @@
           }
         }
       }
+    }
+  }
+
+  .tab-body {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+
+    .mb-mo-tab {
+      width: 100%;
+      height: 100%;
+      position: relative;
     }
   }
 }
