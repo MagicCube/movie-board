@@ -21,13 +21,15 @@ export default class HomePage extends React.PureComponent {
     models: React.PropTypes.objectOf(Immutable.Map).isRequired,
     actions: React.PropTypes.shape({
       loadComingSoon: React.PropTypes.func.isRequired,
-      loadInTheaters: React.PropTypes.func.isRequired
+      loadInTheaters: React.PropTypes.func.isRequired,
+      loadTop20: React.PropTypes.func.isRequired
     }).isRequired
   }
 
   componentDidMount() {
     this.props.actions.loadInTheaters();
     this.props.actions.loadComingSoon();
+    this.props.actions.loadTop20();
   }
 
   render() {
@@ -35,7 +37,8 @@ export default class HomePage extends React.PureComponent {
     // This is why LoLoMo MUST be a pure component which is using shallow comparation.
     const models = Immutable.Map({
       inTheaters: this.props.models.get('inTheaters'),
-      comingSoon: this.props.models.get('comingSoon')
+      comingSoon: this.props.models.get('comingSoon'),
+      top20: this.props.models.get('top20')
     });
     return (
       <div className="mb-page mb-home-page">
