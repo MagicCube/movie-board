@@ -57,9 +57,6 @@ export default class LoMoCovers extends React.Component {
         }}
       >
         <MoCover subject={subject} />
-        <div className="selection-indicator">
-          <div className="arrow" />
-        </div>
       </li>
     )).toArray();
 
