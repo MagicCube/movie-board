@@ -35,7 +35,7 @@
   }
 
   .tab-body {
-    display: none;
+    opacity: 0;
     width: 100%;
     height: 100%;
     position: absolute;
@@ -43,9 +43,12 @@
     right: 0;
     top: 0;
     bottom: 0;
+    transition: all 0.2s;
+    transform: translateY(-50px);
 
     &.selected {
-      display: block;
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .mb-tab {
