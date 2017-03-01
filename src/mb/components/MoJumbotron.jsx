@@ -6,8 +6,8 @@ import LoComments from './LoComments';
 import LoTrailers from './LoTrailers';
 import MoGeneral from './MoGeneral';
 import MoSlides from './MoSlides';
-import MoTab from './MoTab';
-import MoTabs from './MoTabs';
+import Tab from './Tab';
+import Tabs from './Tabs';
 
 import '../res/mo-jumbotron.less';
 
@@ -40,20 +40,20 @@ export default class MoJumbotron extends React.Component {
       <div className="mb-mo-jumbotron" data-subject-id={id}>
         <div className="jumbotron-content">
           <h1 className="subject-title"><span className="title">{title}</span></h1>
-          <MoTabs>
-            <MoTab id="general" title="总览">
+          <Tabs>
+            <Tab id="general" title="总览">
               <MoGeneral subject={subject} />
-            </MoTab>
-            <MoTab id="casts" title="演员">
+            </Tab>
+            <Tab id="casts" title="演员">
               <LoCasts casts={subject.get('casts')} />
-            </MoTab>
-            <MoTab id="trailers" title="预告片">
+            </Tab>
+            <Tab id="trailers" title="预告片">
               <LoTrailers trailers={subject.get('trailers')} />
-            </MoTab>
-            <MoTab id="comments" title="评论">
+            </Tab>
+            <Tab id="comments" title="评论">
               <LoComments comments={subject.get('popular_comments')} />
-            </MoTab>
-          </MoTabs>
+            </Tab>
+          </Tabs>
         </div>
         <MoSlides slides={subject.get('trailers') && subject.get('trailers').size ? subject.get('trailers') : subject.get('photos')} />
       </div>

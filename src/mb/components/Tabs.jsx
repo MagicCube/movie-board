@@ -1,10 +1,9 @@
 import React from 'react';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
-import '../res/mo-tabs.less';
+import '../res/tabs.less';
 
 
-export default class MoTabs extends React.Component {
+export default class Tabs extends React.Component {
   static propTypes = {
     children: React.PropTypes.oneOfType([React.PropTypes.element, React.PropTypes.arrayOf(React.PropTypes.element)])
   }
@@ -33,7 +32,7 @@ export default class MoTabs extends React.Component {
       </li>
     ));
     return (
-      <div className="mb-mo-tabs">
+      <div className="mb-tabs">
         {React.Children.map(children, tab => <div className={selectedTabId === tab.props.id ? 'tab-body selected' : 'tab-body'}>{tab}</div>)}
         <nav className="tab-nav">
           <ul>
