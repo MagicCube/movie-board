@@ -23,16 +23,10 @@ export default class MoTabs extends React.Component {
   render() {
     const { children } = this.props;
     const { selectedTabId } = this.state;
-    let selectedTab = null;
-    React.Children.forEach(children, (child) => {
-      if (child.props.id === selectedTabId) {
-        selectedTab = child;
-      }
-    });
     const tabNavItems = React.Children.map(children, tab => (
       <li
         key={tab.props.id}
-        className={tab === selectedTab ? 'selected' : null}
+        className={tab.props.id === selectedTabId ? 'selected' : null}
         onClick={() => { if (tab.props.id !== selectedTabId) this.setState({ selectedTabId: tab.props.id }); }}
       >
         <a className="h3" role="button">{tab.props.title}</a>
@@ -40,15 +34,7 @@ export default class MoTabs extends React.Component {
     ));
     return (
       <div className="mb-mo-tabs">
-        <div className="tab-body">
-          <ReactCSSTransitionGroup
-            transitionName="tab-transition"
-            transitionEnterTimeout={500}
-            transitionLeaveTimeout={500}
-          >
-            {selectedTab}
-          </ReactCSSTransitionGroup>
-        </div>
+        {React.Children.map(children, tab => <div className={selectedTabId === tab.props.id ? 'tab-body selected' : 'tab-body'}>{tab}</div>)}
         <nav className="tab-nav">
           <ul>
             {tabNavItems}
