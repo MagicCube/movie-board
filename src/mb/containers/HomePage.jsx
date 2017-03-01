@@ -4,7 +4,7 @@ import Immutable from 'immutable';
 import React from 'react';
 
 import modelActionCreators from '../actions/model-action-creators';
-import LoLoMo from './LoLoMo';
+import LoLoMoContainer from './LoLoMoContainer';
 
 
 @connect(
@@ -42,7 +42,7 @@ export default class HomePage extends React.PureComponent {
     });
     return (
       <div className="mb-page mb-home-page">
-        <LoLoMo models={models} />
+        <LoLoMoContainer models={models} />
       </div>
     );
   }
