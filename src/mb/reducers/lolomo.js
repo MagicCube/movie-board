@@ -4,7 +4,6 @@ import Immutable from 'immutable';
 import actionCreators from '../actions/lolomo-action-creators';
 
 const initialState = Immutable.fromJS({
-  selectedSubjectId: null,
   selectedSubject: null,
   selectedModelKey: null
 });
@@ -15,7 +14,6 @@ export default handleActions({
       const { subject, modelKey } = selection;
       return state.merge({
         selectedSubject: subject,
-        selectedSubjectId: subject ? subject.get('id') : null,
         selectedModelKey: subject ? modelKey : null
       });
     }
