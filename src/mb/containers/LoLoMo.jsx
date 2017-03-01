@@ -14,7 +14,7 @@ import '../res/lolomo.less';
 const TITLES = {
   inTheaters: '正在上映的电影',
   comingSoon: '即将上映的电影',
-  top20: '评分最高的电影'
+  top20: '豆瓣电影Top20'
 };
 
 

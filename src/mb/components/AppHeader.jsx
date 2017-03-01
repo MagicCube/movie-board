@@ -25,7 +25,7 @@ export default class AppHeader extends React.PureComponent {
 
   componentDidMount() {
     // TODO: Remove scroll listener when componentDidUnmount if necessary.
-    $(window).on('scroll', () => {
+    $(document).on('scroll', () => {
       const translucent = document.body.scrollTop > 5;
       if (this.state.translucent !== translucent) {
         this.setState({

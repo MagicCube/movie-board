@@ -29,6 +29,9 @@ http://henryli-movie-board.daoapp.io/
 * Octicons (Github Icons)
 * Others including classnames, normalize.css
 
+## Project Plan / Roadmap
+https://github.com/MagicCube/movie-board/projects/1
+
 ## How to Install
 1. Clone the repo to your local storage.
 ``` shell
