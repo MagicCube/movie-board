@@ -22,6 +22,11 @@ export default function JawBone({ children, actions: { close } }) {
 JawBone.propTypes = {
   children: React.PropTypes.element.isRequired,
   actions: React.PropTypes.shape({
-    close: React.PropTypes.func.isRequired
-  }).isRequired
+    close: React.PropTypes.func
+  })
+};
+JawBone.defaultProps = {
+  actions: {
+    close: null
+  }
 };
