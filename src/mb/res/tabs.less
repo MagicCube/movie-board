@@ -1,6 +1,6 @@
 @import 'variables';
 
-.mb-mo-tabs {
+.mb-tabs {
   width: 100%;
   position: relative;
 
@@ -34,16 +34,8 @@
     }
   }
 
-  .tab-transition-enter {
-    transition: all 0.5s;
-    opacity: 0;
-  }
-  .tab-transition-enter-active {
-    opacity: 1;
-  }
-
   .tab-body {
-    display: none;
+    opacity: 0;
     width: 100%;
     height: 100%;
     position: absolute;
@@ -51,12 +43,15 @@
     right: 0;
     top: 0;
     bottom: 0;
+    transition: all 0.2s;
+    transform: translateY(50px);
 
     &.selected {
-      display: block;
+      opacity: 1;
+      transform: translateY(0);
     }
 
-    .mb-mo-tab {
+    .mb-tab {
       width: 100%;
       height: 100%;
       position: relative;
