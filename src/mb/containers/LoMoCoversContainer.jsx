@@ -9,7 +9,7 @@ import actionCreators from '../actions/lolomo-action-creators';
 export default connect(
   (state, ownProps) => ({
     subjects: state.getIn(['models', ownProps.modelKey, 'subjects']),
-    selectedSubjectId: state.getIn(['lolomo', 'selectedSubjectId']),
+    selectedSubjectId: state.getIn(['lolomo', 'selectedSubject', 'id']),
     hasSelection: state.getIn(['lolomo', 'selectedModelKey']) === ownProps.modelKey
   }),
   (dispatch, ownProps) => ({
