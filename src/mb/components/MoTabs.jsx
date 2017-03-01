@@ -6,20 +6,23 @@ import '../res/mo-tabs.less';
 
 export default class MoTabs extends React.Component {
   static propTypes = {
-    actions: React.PropTypes.shape({
-      selectTab: React.PropTypes.func.isRequired
-    }).isRequired,
-    children: React.PropTypes.oneOfType([React.PropTypes.element, React.PropTypes.arrayOf(React.PropTypes.element)]),
-    selectedTabId: React.PropTypes.string.isRequired
+    children: React.PropTypes.oneOfType([React.PropTypes.element, React.PropTypes.arrayOf(React.PropTypes.element)])
   }
 
   static defaultProps = {
-    selectedTabId: 'general',
     children: []
   }
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      selectedTabId: 'general'
+    };
+  }
+
   render() {
-    const { actions: { selectTab }, selectedTabId, children } = this.props;
+    const { children } = this.props;
+    const { selectedTabId } = this.state;
     let selectedTab = null;
     React.Children.forEach(children, (child) => {
       if (child.props.id === selectedTabId) {
@@ -30,7 +33,7 @@ export default class MoTabs extends React.Component {
       <li
         key={tab.props.id}
         className={tab === selectedTab ? 'selected' : null}
-        onClick={() => { if (tab.props.id !== selectedTabId) selectTab(tab.props.id); }}
+        onClick={() => { if (tab.props.id !== selectedTabId) this.setState({ selectedTabId: tab.props.id }); }}
       >
         <a className="h3" role="button">{tab.props.title}</a>
       </li>

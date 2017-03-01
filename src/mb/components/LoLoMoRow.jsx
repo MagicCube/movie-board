@@ -1,8 +1,6 @@
 import cs from 'classnames';
-import Immutable from 'immutable';
 import React from 'react';
-
-import LoMoCovers from './LoMoCovers';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 
 /**
@@ -10,21 +8,16 @@ import LoMoCovers from './LoMoCovers';
  */
 export default class LoLoMoRow extends React.Component {
   static propTypes = {
-    actions: React.PropTypes.object,
-    children: React.PropTypes.element,
-    defaultTitle: React.PropTypes.string.isRequired,
+    children: React.PropTypes.oneOfType([React.PropTypes.element, React.PropTypes.arrayOf(React.PropTypes.element)]),
     hasSelection: React.PropTypes.bool,
-    model: React.PropTypes.objectOf(Immutable.Map).isRequired,
-    selectedSubjectId: React.PropTypes.string,
-    subjectKey: React.PropTypes.string
+    jawBone: React.PropTypes.element,
+    title: React.PropTypes.string.isRequired
   }
 
   static defaultProps = {
-    actions: {},
     children: null,
     hasSelection: false,
-    selectedSubjectId: null,
-    subjectKey: null
+    jawBone: null
   }
 
   scrollLeft = () => {
@@ -60,20 +53,27 @@ export default class LoLoMoRow extends React.Component {
   }
 
   render() {
-    const { actions, children, defaultTitle, hasSelection, model, selectedSubjectId, subjectKey } = this.props;
+    const { title, hasSelection, jawBone } = this.props;
+    const children = React.Children.toArray(this.props.children);
     return (
       <div className={cs('mb-lolomo-row', { 'no-selection': !hasSelection }, { 'has-selection': hasSelection })}>
         <div className="row-head">
-          <a className="title h3">{model.get('title') ? model.get('title') : defaultTitle}</a>
+          <a className="title h3">{title}</a>
         </div>
         <div className="row-content">
           <a className="left scroll-button" role="button" onClick={this.scrollLeft}><i className="octicon icon-chevron-left" /></a>
           <div ref={(div) => { this.scrollable = div; }} className="scrollable">
-            <LoMoCovers subjectKey={subjectKey} subjects={model.get('subjects')} hasSelection={hasSelection} selectedSubjectId={selectedSubjectId} actions={actions} />
+            {children.length > 0 ? children[0] : null}
           </div>
           <a className="right scroll-button" role="button" onClick={this.scrollRight}><i className="octicon icon-chevron-right" /></a>
         </div>
-        {children}
+        <ReactCSSTransitionGroup
+            transitionName="jaw-bone-transition"
+            transitionEnterTimeout={400}
+            transitionLeaveTimeout={300}
+          >
+          {jawBone}
+        </ReactCSSTransitionGroup>
       </div>
     );
   }

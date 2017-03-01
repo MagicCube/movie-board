@@ -4,28 +4,22 @@ import Immutable from 'immutable';
 import actionCreators from '../actions/lolomo-action-creators';
 
 const initialState = Immutable.fromJS({
-  selectedSubjectId: null,
-  selectedRowKey: null,
-  tabs: {
-    selectedTabId: 'general'
-  }
+  selectedSubject: null,
+  selectedModelKey: null
 });
 
 export default handleActions({
   [actionCreators.selectSubject](state, { payload: selection }) {
     if (selection) {
-      const { subject, rowKey } = selection;
+      const { subject, modelKey } = selection;
       return state.merge({
-        selectedSubjectId: subject ? subject.get('id') : null,
-        selectedRowKey: subject ? rowKey : null,
-        tabs: {
-          selectedTabId: 'general'
-        }
+        selectedSubject: subject,
+        selectedModelKey: subject ? modelKey : null
       });
     }
     return initialState;
   },
-  [actionCreators.selectTab](state, { payload: tabId }) {
-    return state.setIn(['tabs', 'selectedTabId'], tabId);
+  [actionCreators.loadSubject](state, { payload: subject }) {
+    return state.set('selectedSubject', subject);
   }
 }, initialState);

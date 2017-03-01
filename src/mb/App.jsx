@@ -1,9 +1,9 @@
 import React from 'react';
 
-import AppFooter from '../components/AppFooter';
-import AppHeader from '../components/AppHeader';
+import AppFooter from './components/AppFooter';
+import AppHeader from './components/AppHeader';
 
-import '../res/app.less';
+import './res/app.less';
 
 /**
  * Application container.

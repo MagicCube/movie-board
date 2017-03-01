@@ -2,9 +2,10 @@ import cs from 'classnames';
 import Immutable from 'immutable';
 import React from 'react';
 
-import MoCover from './MoCover';
+import MoCover from '../components/MoCover';
 
 import '../res/lomo-covers.less';
+
 
 /**
  * Represent a "List of Movie Covers" inside a LoLoMo Row.
@@ -17,13 +18,11 @@ export default class LoMoCovers extends React.Component {
     hasSelection: React.PropTypes.bool,
     selectedSubjectId: React.PropTypes.string,
     subjects: React.PropTypes.objectOf(Immutable.List).isRequired,
-    subjectKey: React.PropTypes.string
   }
 
   static defaultProps = {
     hasSelection: false,
-    selectedSubjectId: null,
-    subjectKey: null
+    selectedSubjectId: null
   }
 
   shouldComponentUpdate(nextProps) {
@@ -40,7 +39,7 @@ export default class LoMoCovers extends React.Component {
   }
 
   render() {
-    const { actions, selectedSubjectId, subjects, subjectKey } = this.props;
+    const { actions, selectedSubjectId, subjects } = this.props;
 
     const items = subjects.map(subject => (
       <li

@@ -17,17 +17,21 @@ import '../res/mo-jumbotron.less';
  */
 export default class MoJumbotron extends React.Component {
   static propTypes = {
-    actions: React.PropTypes.object.isRequired,
-    selectedTabId: React.PropTypes.string.isRequired,
-    subject: React.PropTypes.objectOf(Immutable.Map).isRequired
+    subject: React.PropTypes.objectOf(Immutable.Map)
+  }
+
+  static defaultProps = {
+    subject: null
   }
 
   shouldComponentUpdate(nextProps) {
-    return !nextProps.subject.equals(this.props.subject) || nextProps.selectedTabId !== this.props.selectedTabId;
+    return (nextProps.subject === null && this.props.subject !== null) ||
+      !nextProps.subject.equals(this.props.subject)
   }
 
   render() {
-    const { actions, selectedTabId, subject } = this.props;
+    const { subject } = this.props;
+    if (subject === null) return null;
     const {
       id,
       title
@@ -36,7 +40,7 @@ export default class MoJumbotron extends React.Component {
       <div className="mb-mo-jumbotron" data-subject-id={id}>
         <div className="jumbotron-content">
           <h1 className="subject-title"><span className="title">{title}</span></h1>
-          <MoTabs actions={actions} selectedTabId={selectedTabId}>
+          <MoTabs>
             <MoTab id="general" title="总览">
               <MoGeneral subject={subject} />
             </MoTab>

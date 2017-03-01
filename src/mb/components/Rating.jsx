@@ -19,7 +19,7 @@ export default class Rating extends React.Component {
 
   render() {
     const { rating } = this.props;
-    const stars = parseInt(rating.get('stars'));
+    const stars = parseInt(rating.get('stars'), 0);
     const average = rating.get('average');
     return (
       <div className="mb-rating" data-stars={stars}>
