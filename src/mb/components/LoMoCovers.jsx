@@ -32,7 +32,7 @@ export default class LoMoCovers extends React.Component {
     } else if (nextProps.selectedSubjectId !== this.props.selectedSubjectId && this.props.hasSelection) {
       shouldUpdate = true;
     }
-    if (!nextProps.subjects.equals(this.props.subjects)) {
+    if (nextProps.subjects !== this.props.subjects) {
       shouldUpdate = true;
     }
     return shouldUpdate;
@@ -40,7 +40,6 @@ export default class LoMoCovers extends React.Component {
 
   render() {
     const { actions, selectedSubjectId, subjects } = this.props;
-
     const items = subjects.map(subject => (
       <li
         key={subject.get('id')}
