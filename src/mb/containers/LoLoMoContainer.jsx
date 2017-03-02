@@ -59,12 +59,14 @@ export default class LoLoMoContainer extends React.PureComponent {
       return (
         <LoLoMoRow
           key={key}
+          hasSelection={hasSelection}
           modelKey={key}
           title={title}
-          hasSelection={hasSelection}
           jawBone={jawBone}
         >
           <LoMoCoversContainer
+            subjects={model.get('subjects')}
+            hasSelection={hasSelection}
             modelKey={key}
           />
         </LoLoMoRow>
