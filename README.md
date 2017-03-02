@@ -39,19 +39,14 @@ git clone https://github.com/MagicCube/movie-board.git
 npm install
 ```
 
-## How to Build and Run
-* Run in **Webpack DevServer**.
+## How to Run in Development Mode
 ``` shell
 npm run dev
 ```
 
-* Or build it in **production mode**.
+## How to Run in Production Mode
 ``` shell
 npm run build
-```
-
-  Then run
-``` shell
 npm start
 ```
 
