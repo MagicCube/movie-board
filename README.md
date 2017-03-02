@@ -33,12 +33,9 @@ http://henryli-movie-board.daoapp.io/
 https://github.com/MagicCube/movie-board/projects/1
 
 ## How to Install
-1. Clone the repo to your local storage.
+Clone the repo to your local storage, and install the dependencies using NPM
 ``` shell
 git clone https://github.com/MagicCube/movie-board.git
-```
-2. Install dependencies.
-``` shell
 npm install
 ```
 
@@ -47,14 +44,13 @@ npm install
 ``` shell
 npm run dev
 ```
-  Then open http://localhost:8080
 
 * Or build it in **production mode**.
 ``` shell
 npm run build
 ```
 
-* Then run
+  Then run
 ``` shell
 npm start
 ```
