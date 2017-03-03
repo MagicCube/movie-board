@@ -28,5 +28,6 @@ $(() => {
   console.info('WELCOME ABOARD, DEVELOPERS!');
   console.info('Feel free to send me email via henry1943@163.com');
   console.info('And don\'t forget to star my project on Github :)');
+  console.info('想看源代码？直接 Star 我的 Github 项目呗！');
   console.info('https://github.com/MagicCube/movie-board/');
 });
