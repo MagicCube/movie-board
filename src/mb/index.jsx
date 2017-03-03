@@ -28,6 +28,7 @@ $(() => {
   console.info('WELCOME ABOARD, DEVELOPERS!');
   console.info('Feel free to send me email via henry1943@163.com');
   console.info('And don\'t forget to star my project on Github :)');
-  console.info('想看源代码？直接 Star 我的 Github 项目呗！');
-  console.info('https://github.com/MagicCube/movie-board/');
+  console.info('%c想看源代码？不用麻烦，这是一个开源项目', 'font-size: 16px; color: #E50914;');
+  console.info('%c直接 Star 我的 Github 项目呗！', 'font-size: 16px; color: #E50914;');
+  console.info('%chttps://github.com/MagicCube/movie-board/', 'font-size: 14px;');
 });
