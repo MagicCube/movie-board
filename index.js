@@ -1,7 +1,9 @@
+const compression = require('compression');
 const express = require('express');
 const proxy = require('http-proxy-middleware');
 
 const app = express();
+app.use(compression());
 app.use(express.static('public'));
 app.use('/api', proxy({
   target: 'http://api.douban.com/v2',
