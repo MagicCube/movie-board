@@ -93,7 +93,45 @@
   .mb-responsive(1024 / 1920);
 }
 
+@media (max-width: 1024px) {
+  .mb-jaw-bone {
+    height: 400px !important;
+  }
+}
+
+@media (max-width: 320px) {
+  .mb-jaw-bone {
+    height: 300px !important;
+  }
+
+  .mb-mo-general {
+    .summary {
+      display: none !important;
+    }
+  }
+}
+
 @media (max-width: 768px) {
   .mb-font-size(768 / 1920);
   .mb-responsive(768 / 1920);
+}
+
+@media (max-width: 425px) {
+  .mb-tabs {
+    .tab-nav {
+      ul {
+        li {
+          padding: 10px 15px !important;
+        }
+      }
+    }
+  }
+
+  .mb-mo-general {
+    width: 80% !important;
+  }
+
+  .mb-lo-comments {
+    width: 80% !important;
+  }
 }
