@@ -45,13 +45,17 @@ export default class LoMoCovers extends React.Component {
         key={subject.get('id')}
         className={cs('mb-lomo-covers-cell', { selected: selectedSubjectId === subject.get('id') })}
         onClick={(e) => {
-          actions.selectSubject(subject);
-          const parent = e.currentTarget.offsetParent;
-          setTimeout(() => {
-            $(document.body).animate({
-              scrollTop: parent.offsetTop + parent.offsetParent.offsetTop - $('.mb-app-header').height() - 8
-            }, 250);
-          }, 400);
+          if (selectedSubjectId === subject.get('id')) {
+            actions.selectSubject(null);
+          } else {
+            actions.selectSubject(subject);
+            const parent = e.currentTarget.offsetParent;
+            setTimeout(() => {
+              $(document.body).animate({
+                scrollTop: parent.offsetTop + parent.offsetParent.offsetTop - $('.mb-app-header').height() - 8
+              }, 250);
+            }, 400);
+          }
         }}
       >
         <MoCover subject={subject} />
