@@ -3,7 +3,7 @@ import React from 'react';
 import AppFooter from './components/AppFooter';
 import AppHeader from './components/AppHeader';
 
-import './res/app.less';
+import style from './res/app.less';
 
 /**
  * Application container.
@@ -19,7 +19,7 @@ export default class App extends React.PureComponent {
 
   render() {
     return (
-      <div className="mb-app">
+      <div className={style.App}>
         <AppHeader />
         {this.props.children}
         <AppFooter />
