@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import React from 'react';
 
-import style from '../res/app-header.less';
+import style from '../res/AppHeader.less';
 
 
 /**
@@ -37,7 +37,7 @@ export default class AppHeader extends React.PureComponent {
 
   render() {
     return (
-      <header className={cn(style.AppHeader, { translucent: this.state.translucent })}>
+      <header className={cn(style.AppHeader, { [style['AppHeader--translucent']]: this.state.translucent })}>
         <div className={style.Logo} />
         <div className="navbars">
           {this.props.navbars}
