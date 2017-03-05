@@ -1,4 +1,7 @@
 import { applyMiddleware } from 'redux';
 import reduxPromise from 'redux-promise';
 
-export default applyMiddleware(reduxPromise);
+import progressMiddleware from '../middleware/ProgressMiddleware';
+
+
+export default applyMiddleware(progressMiddleware, reduxPromise);
