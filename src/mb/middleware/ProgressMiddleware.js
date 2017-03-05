@@ -5,6 +5,9 @@ const loadingActions = [];
 
 export default store => next => action => {
   if (action.payload instanceof Promise) {
+    if (action.type === 'LOAD_SUBJECT') {
+      loadingActions.splice(0, loadingActions.length);
+    }
     loadingActions.push(action.type);
     if (!store.getState().getIn(['status', 'isLoading'])) {
       store.dispatch(actionCreators.load());
