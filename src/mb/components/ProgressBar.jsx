@@ -6,7 +6,7 @@ import '../res/progress-bar.less';
 /**
  * The placebo progress bar component.
  */
-export default class MoSlides extends React.Component {
+export default class ProgressBar extends React.Component {
   static propTypes = {
     isLoading: React.PropTypes.bool
   }
