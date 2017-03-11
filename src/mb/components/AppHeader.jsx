@@ -38,18 +38,11 @@ export default class AppHeader extends React.PureComponent {
   render() {
     return (
       <header className={cn('mb-app-header', { translucent: this.state.translucent })}>
-        <div className="mb-logo" onClick={this.handleClick} />
+        <div className="mb-logo" />
         <div className="navbars">
           {this.props.navbars}
         </div>
       </header>
     );
-  }
-
-  handleClick = async () => {
-    await new Promise((resolve) => {
-      setTimeout(resolve, 1000);
-    });
-    console.log(this);
   }
 }
