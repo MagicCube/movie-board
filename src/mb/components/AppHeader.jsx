@@ -9,7 +9,10 @@ import '../res/app-header.less';
  */
 export default class AppHeader extends React.PureComponent {
   static propTypes = {
-    navbars: React.PropTypes.array
+    navbars: React.PropTypes.oneOfType([
+      React.PropTypes.element,
+      React.PropTypes.arrayOf(React.PropTypes.element)
+    ])
   }
 
   static defaultProps = {
