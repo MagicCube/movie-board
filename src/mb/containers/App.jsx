@@ -28,7 +28,7 @@ export default class App extends React.PureComponent {
   }
 
   render() {
-    this.searchBar = <SearchBar />;
+    this.searchBar = <SearchBar onKeywordChange={e => console.log(e.keyword)} />;
     return (
       <div className="mb-app">
         <AppHeader navbars={this.searchBar} />
