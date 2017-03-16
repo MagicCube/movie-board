@@ -1,0 +1,28 @@
+@import 'variables';
+
+.mb-search-bar {
+  position: relative;
+
+  @inactive-color: #555;
+
+  .icon-search {
+    position: absolute;
+    left: 5px;
+    top: 3px;
+    color: @inactive-color;
+  }
+
+  input {
+    padding-left: 20px;
+    width: 120px;
+    border-color: @inactive-color;
+
+    &:focus {
+      width: 240px;
+    }
+
+    &:focus + .icon-search {
+      color: @text-color;
+    }
+  }
+}
