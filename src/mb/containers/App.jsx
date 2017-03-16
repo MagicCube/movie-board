@@ -5,6 +5,7 @@ import React from 'react';
 import AppFooter from '../components/AppFooter';
 import AppHeader from '../components/AppHeader';
 import ProgressBar from '../components/ProgressBar';
+import SearchBar from '../components/SearchBar';
 
 import '../res/app.less';
 
@@ -27,9 +28,10 @@ export default class App extends React.PureComponent {
   }
 
   render() {
+    this.searchBar = <SearchBar />;
     return (
       <div className="mb-app">
-        <AppHeader />
+        <AppHeader navbars={this.searchBar} />
         <ProgressBar isLoading={this.props.status.get('isLoading')} />
         {this.props.children}
         <AppFooter />

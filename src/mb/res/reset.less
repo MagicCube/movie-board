@@ -30,6 +30,17 @@ textarea {
   font-family: inherit;
   font-size: inherit;
   line-height: inherit;
+  color: @text-color;
+  background: @body-bg;
+  outline: none;
+  border: 1px solid @border-color;
+  padding-left: 5px;
+  padding-right: 5px;
+  transition: all 0.4s;
+
+  &:focus {
+    border-color: @text-color;
+  }
 }
 
 h1, .h1,
