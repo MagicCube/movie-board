@@ -19,6 +19,7 @@ module.exports = {
   devtool: devMode ? 'source-map' : false,
   devServer: {
     compress: true,
+    historyApiFallback: true,
     hot: false,
     hotOnly: false,
     contentBase: path.resolve(__dirname, 'public'),

@@ -4,7 +4,7 @@ import Immutable from 'immutable';
 import React from 'react';
 
 import modelActionCreators from '../actions/model-action-creators';
-import LoLoMoContainer from './LoLoMoContainer';
+import LoLoMoContainer from '../containers/LoLoMoContainer';
 
 
 @connect(

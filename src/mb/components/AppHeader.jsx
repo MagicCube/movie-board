@@ -1,3 +1,4 @@
+import { browserHistory } from 'react-router';
 import cn from 'classnames';
 import React from 'react';
 
@@ -41,7 +42,7 @@ export default class AppHeader extends React.PureComponent {
   render() {
     return (
       <header className={cn('mb-app-header', { translucent: this.state.translucent })}>
-        <div className="mb-logo" />
+        <div className="mb-logo" onClick={() => browserHistory.push('/')} />
         <div className="navbars">
           {this.props.navbars}
         </div>

@@ -4,14 +4,14 @@ import '../res/search-bar.less';
 
 export default class SearchBar extends React.Component {
   static propTypes = {
-    onKeywordChange: React.PropTypes.func.isRequired
+    onQueryChange: React.PropTypes.func.isRequired
   }
 
   handleChange(e) {
     const value = e.target.value.trim();
     this.clearChangingTimer();
     this.changingTimer = setTimeout(() => {
-      this.props.onKeywordChange({ keyword: value !== '' ? value : null });
+      this.props.onQueryChange({ query: value !== '' ? value : null });
     }, 360);
   }
 
@@ -25,7 +25,7 @@ export default class SearchBar extends React.Component {
   render() {
     return (
       <div className="mb-search-bar">
-        <input type="search" onChange={e => this.handleChange(e)} placeholder="影片搜索" />
+        <input type="search" onChange={e => this.handleChange(e)} placeholder="影片名或艺术家" />
         <span className="octicon icon-search" />
       </div>
     );
