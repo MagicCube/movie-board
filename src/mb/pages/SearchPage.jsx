@@ -23,7 +23,6 @@ export default class SearchPage extends React.Component {
   }
 
   render() {
-    console.log(this.props.searchResults.get('subjects'));
     return (
       <div className="mb-page mb-search-page">
         <LoMoCovers subjects={this.props.searchResults.get('subjects')} actions={{ selectSubject: () => {} }} />
