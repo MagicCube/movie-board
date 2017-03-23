@@ -2,8 +2,8 @@ import React from 'react';
 import { IndexRoute, Route } from 'react-router';
 
 import App from './containers/App';
-import HomePage from './containers/HomePage';
-import SearchPage from './containers/SearchPage';
+import HomePage from './pages/HomePage';
+import SearchPage from './pages/SearchPage';
 
 /**
  * Routes of application.
