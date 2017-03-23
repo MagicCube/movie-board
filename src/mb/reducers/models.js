@@ -18,5 +18,8 @@ export default handleActions({
   },
   [actionCreators.loadTop20](state, { payload: top20 }) {
     return state.set('top20', top20);
+  },
+  [actionCreators.search](state, { payload: results }) {
+    return state.set('searchResult', results);
   }
 }, initialState);
